@@ -1,18 +1,18 @@
 package com.example.sistema_academia.domain.contracts;
 
-import java.time.LocalDate;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.example.sistema_academia.domain.entities.Aluno;
-import com.example.sistema_academia.domain.enums.EnumPlano;
+import com.example.sistema_academia.domain.entities.Rematricula;
 
 
 public interface AlunoContract {
     
-    String cadastrarAluno(String nome, String cpf, String email, String telefone, LocalDate dataNascimento, LocalDate dataMatricula);
+    boolean cadastrarAluno(Aluno aluno);
     boolean validarCPFAluno(String cpf);
     boolean validarIdAluno(int id);
-    String fazerRematricula(String cpf, EnumPlano planoAcademia, LocalDate dataRematricula);
-    List<Aluno> listarAlunos();
+    boolean fazerRematricula(Rematricula rematricula);
+    Page<Aluno> listarAlunos(Pageable pageable);
     boolean deletarAluno(int id);
 }

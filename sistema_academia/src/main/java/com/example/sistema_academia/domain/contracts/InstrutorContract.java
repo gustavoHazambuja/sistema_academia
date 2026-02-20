@@ -1,15 +1,18 @@
 package com.example.sistema_academia.domain.contracts;
 
-import java.time.LocalDate;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.example.sistema_academia.domain.entities.Instrutor;
+import com.example.sistema_academia.domain.entities.Treino;
 
 public interface InstrutorContract {
     
-        String cadastrarInstrutor(String nome, String cpf, String email, String telefone, LocalDate dataNascimento, String formacao);
-        boolean validarCPFInstruotor(String cpf);
+        boolean cadastrarInstrutor(Instrutor instrutor);
+        boolean validarCPFInstrutor(String cpf);
         boolean validarIdInstrutor(int id);
-        List<Instrutor> listarInstrutores();
-        String criarTreino(String nomeAluno, String nomeInstrutor, String objetivo, LocalDate dataCriacao);
+        Page<Instrutor> listarInstrutores(Pageable pageable);
+        boolean criarTreino(Treino treino);
+        boolean validarNomeAluno(String nomeAluno);
+        boolean validarNomeInstrutor(String nomeinstrutor);
 }

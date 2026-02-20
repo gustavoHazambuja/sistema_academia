@@ -2,6 +2,9 @@ package com.example.sistema_academia.domain.entities;
 
 import java.time.LocalDate;
 
+import com.example.sistema_academia.domain.enums.EnumPlano;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,13 +18,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_treino")
+@Table(name = "tb_rematricula")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Treino {
-    
+public class Rematricula {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -30,11 +33,8 @@ public class Treino {
     private Aluno aluno;
 
     @NotNull
-    private Instrutor instrutor;
-
-    @NotBlank(message = "O objetivo é obtigatório")
-    private String objetivo;
+    private EnumPlano planoAcademia;
 
     @NotNull
-    private LocalDate dataCriacao;
+    private LocalDate dataRematricula;
 }
