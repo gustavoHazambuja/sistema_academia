@@ -4,7 +4,6 @@ package com.example.sistema_academia.domain.entities;
 import java.time.LocalDate;
 
 import com.example.sistema_academia.domain.enums.EnumPlano;
-import com.example.sistema_academia.domain.enums.EnumTurno;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
