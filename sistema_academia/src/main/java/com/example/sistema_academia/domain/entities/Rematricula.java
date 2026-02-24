@@ -23,6 +23,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Rematricula {
 
+    
+
+    public Rematricula(Aluno aluno,EnumPlano planoAcademia,LocalDate dataRematricula) {
+        this.aluno = aluno;
+        this.planoAcademia = planoAcademia;
+        this.dataRematricula = dataRematricula;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

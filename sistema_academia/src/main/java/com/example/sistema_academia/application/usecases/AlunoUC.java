@@ -7,7 +7,9 @@ import org.springframework.data.domain.Pageable;
 import com.example.sistema_academia.application.dtos.AlunoDTO;
 import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
+import com.example.sistema_academia.application.dtos.RematriculaDTO;
 import com.example.sistema_academia.domain.entities.Aluno;
+import com.example.sistema_academia.domain.entities.Rematricula;
 import com.example.sistema_academia.domain.services.AlunoService;
 
 public class AlunoUC {
@@ -30,8 +32,13 @@ public class AlunoUC {
 
     }
 
-    public boolean deletarAluno(int id){
-        return alunoService.deletarAluno(id);
+    public boolean fazerRematricula(RematriculaDTO dto){
+        Rematricula rematricula = toModel(dto);
+        return alunoService.fazerRematricula(rematricula);
+    }
+
+    public boolean deletarAlunoPorId(int id){
+        return alunoService.deletarAlunoPorId(id);
     }
 
     public Page<AlunoResumoDTO> listarAlunos(Pageable pageable){
@@ -52,7 +59,14 @@ public class AlunoUC {
             dto.getDataNascimento(),
             dto.getDataMatricula(),
             dto.getPlanoAcademia());
-}
+    }
+
+    private Rematricula toModel(RematriculaDTO dto){
+        return new Rematricula(
+            dto.getAluno(),
+            dto.getPlanoAcademia(),
+            dto.getDataRematricula());
+    }
 }
 
 

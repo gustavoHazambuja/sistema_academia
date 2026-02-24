@@ -42,7 +42,7 @@ public class AlunoService{
        return alunoContract.listarAlunos(pageable);
     }
 
-    public boolean deletarAluno(int id){
+    public boolean deletarAlunoPorId(int id){
         if(validarIdAluno(id)){
             return true;
         }
