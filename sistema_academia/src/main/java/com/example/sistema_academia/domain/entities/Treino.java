@@ -21,7 +21,18 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Treino {
+
+
     
+    
+    public Treino(Aluno aluno,Instrutor instrutor,String objetivo, LocalDate dataCriacao) {
+        this.aluno = aluno;
+        this.instrutor = instrutor;
+        this.objetivo = objetivo;
+        this.dataCriacao = dataCriacao;
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

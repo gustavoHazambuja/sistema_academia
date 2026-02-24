@@ -26,7 +26,33 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Instrutor {
+
+
     
+    
+    public Instrutor(String cpf,String nome,String email,String telefone,LocalDate dataNascimento,String formação,EnumTurno turnoAula) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.formação = formação;
+        this.turnoAula = turnoAula;
+    }
+
+    
+
+    public Instrutor(int id, String nome, String email,String telefone, String formação,EnumTurno turnoAula) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.formação = formação;
+        this.turnoAula = turnoAula;
+    }
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

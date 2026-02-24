@@ -15,4 +15,5 @@ public interface AlunoContract {
     boolean fazerRematricula(Rematricula rematricula);
     Page<Aluno> listarAlunos(Pageable pageable);
     boolean deletarAluno(int id);
+    Aluno buscarAlunoPorCpf(String cpg);
 }

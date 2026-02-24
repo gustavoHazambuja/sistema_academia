@@ -48,4 +48,8 @@ public class AlunoService{
         }
         return false;
     }
+
+    public Aluno buscarAlunoPorCpf(String cpf){
+        return alunoContract.buscarAlunoPorCpf(cpf);
+    }
 }

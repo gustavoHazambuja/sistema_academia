@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.example.sistema_academia.application.dtos.AlunoDTO;
+import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
 import com.example.sistema_academia.domain.entities.Aluno;
 import com.example.sistema_academia.domain.services.AlunoService;
@@ -38,7 +39,11 @@ public class AlunoUC {
             .map(AlunoResumoDTO::fromModel);
     }
 
-    
+    public AlunoDetalhadoDTO buscarAlunoPorCpf(String cpf){
+        Aluno aluno = alunoService.buscarAlunoPorCpf(cpf);
+        return AlunoDetalhadoDTO.fromModel(aluno);
+    }
+
     private Aluno toModel(AlunoDTO dto){
         return new Aluno(
             dto.getCpf(),
