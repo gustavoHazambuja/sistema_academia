@@ -25,10 +25,10 @@ public class Rematricula {
 
     
 
-    public Rematricula(Aluno aluno,EnumPlano planoAcademia,LocalDate dataRematricula) {
-        this.aluno = aluno;
+    public Rematricula(String cpf,EnumPlano planoAcademia,LocalDate dataRematricula) {
+        this.cpf = cpf;
         this.planoAcademia = planoAcademia;
-        this.dataRematricula = dataRematricula;
+        this.dataRematricula = LocalDate.now();
     }
 
     @Id
@@ -36,11 +36,11 @@ public class Rematricula {
     private int id;
 
     @NotNull
-    private Aluno aluno;
+    private String cpf;
 
     @NotNull
     private EnumPlano planoAcademia;
 
     @NotNull
-    private LocalDate dataRematricula;
+    private LocalDate dataRematricula = LocalDate.now();
 }

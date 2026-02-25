@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.sistema_academia.domain.contracts.InstrutorContract;
+import com.example.sistema_academia.domain.entities.Aluno;
 import com.example.sistema_academia.domain.entities.Instrutor;
 import com.example.sistema_academia.domain.entities.Treino;
 
@@ -14,6 +15,9 @@ public class InstrutorService {
     
     @Autowired
     private InstrutorContract instrutorContract;
+
+    @Autowired
+    private AlunoService alunoService;
 
     public boolean validarCPFInstrutor(String cpf){
         return instrutorContract.validarCPFInstrutor(cpf);
@@ -42,11 +46,21 @@ public class InstrutorService {
         return instrutorContract.validarNomeInstrutor(nomeinstrutor);
     }
 
+    public Instrutor buscarInstrutorPorNome(String nome){
+        return instrutorContract.buscarInstrutorPorNome(nome);
+    }
+
     public boolean criarTreino(Treino treino){
-        if(validarNomeAluno(treino.getAluno().getNome()) && validarNomeInstrutor(treino.getInstrutor().getNome())){
-            return true;
+       
+        Aluno aluno = alunoService.buscarAlunoPorNome(treino.getNomeAluno());
+        Instrutor instrutor = buscarInstrutorPorNome(treino.getNomeInstrutor());
+
+
+        if(aluno == null || instrutor == null){
+            return false;
         }
-        return false;
+
+        return instrutorContract.criarTreino(treino);
     }
 
    

@@ -25,11 +25,11 @@ public class Treino {
 
     
     
-    public Treino(Aluno aluno,Instrutor instrutor,String objetivo, LocalDate dataCriacao) {
-        this.aluno = aluno;
-        this.instrutor = instrutor;
+    public Treino(String nomeAluno,String nomeInstrutor,String objetivo, LocalDate dataCriacao) {
+        this.nomeAluno = nomeAluno;
+        this.nomeInstrutor = nomeInstrutor;
         this.objetivo = objetivo;
-        this.dataCriacao = dataCriacao;
+    this.dataCriacao = LocalDate.now();
     }
 
 
@@ -38,14 +38,14 @@ public class Treino {
     private int id;
 
     @NotNull
-    private Aluno aluno;
+    private String nomeAluno;
 
     @NotNull
-    private Instrutor instrutor;
+    private String nomeInstrutor;
 
     @NotBlank(message = "O objetivo é obtigatório")
     private String objetivo;
 
     @NotNull
-    private LocalDate dataCriacao;
+    private LocalDate dataCriacao = LocalDate.now();
 }

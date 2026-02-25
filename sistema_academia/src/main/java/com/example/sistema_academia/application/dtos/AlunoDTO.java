@@ -21,7 +21,6 @@ public class AlunoDTO {
     private String email;
     private String telefone;
     private LocalDate dataNascimento;
-    private LocalDate dataMatricula;
     private EnumPlano planoAcademia;
 
 }

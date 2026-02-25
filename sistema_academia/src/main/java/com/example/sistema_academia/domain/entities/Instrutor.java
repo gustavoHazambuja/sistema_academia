@@ -1,6 +1,7 @@
 package com.example.sistema_academia.domain.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.sistema_academia.domain.enums.EnumTurno;
@@ -76,7 +77,7 @@ public class Instrutor {
     private String formação;
 
     @OneToMany(mappedBy = "instrutor")
-    private List<Aluno> alunos;
+    private List<Aluno> alunos = new ArrayList<>();
 
     @NotBlank(message = "O turno é obrigatório")
     private EnumTurno turnoAula;

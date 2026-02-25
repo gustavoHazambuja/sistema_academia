@@ -51,19 +51,23 @@ public class AlunoUC {
         return AlunoDetalhadoDTO.fromModel(aluno);
     }
 
+    public AlunoDetalhadoDTO buscarAlunoPorNome(String nome){
+        Aluno aluno = alunoService.buscarAlunoPorNome(nome);
+        return AlunoDetalhadoDTO.fromModel(aluno);
+    }
+
     private Aluno toModel(AlunoDTO dto){
         return new Aluno(
             dto.getCpf(),
             dto.getNome(),
             dto.getTelefone(),
             dto.getDataNascimento(),
-            dto.getDataMatricula(),
             dto.getPlanoAcademia());
     }
 
     private Rematricula toModel(RematriculaDTO dto){
         return new Rematricula(
-            dto.getAluno(),
+            dto.getCpf(),
             dto.getPlanoAcademia(),
             dto.getDataRematricula());
     }

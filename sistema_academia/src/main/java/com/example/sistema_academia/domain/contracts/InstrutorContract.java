@@ -15,4 +15,5 @@ public interface InstrutorContract {
         boolean criarTreino(Treino treino);
         boolean validarNomeAluno(String nomeAluno);
         boolean validarNomeInstrutor(String nomeinstrutor);
+        Instrutor buscarInstrutorPorNome(String nome);
 }

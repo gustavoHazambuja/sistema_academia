@@ -30,12 +30,11 @@ public class Aluno {
 
     
 
-    public Aluno(String cpf,String nome,String telefone, LocalDate dataNascimento, LocalDate dataMatricula, EnumPlano planoAcademia) {
+    public Aluno(String cpf,String nome,String telefone, LocalDate dataNascimento, EnumPlano planoAcademia) {
         this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
-        this.dataMatricula = dataMatricula;
         this.planoAcademia = planoAcademia;
     }
 
@@ -45,7 +44,7 @@ public class Aluno {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.dataMatricula = dataMatricula;
+        this.dataMatricula = LocalDate.now();
         this.planoAcademia = planoAcademia;
     }
 
@@ -71,7 +70,7 @@ public class Aluno {
     private LocalDate dataNascimento;
 
     @NotNull
-    private LocalDate dataMatricula;
+    private LocalDate dataMatricula = LocalDate.now();
     
     @NotBlank (message = "O plano de adademia é obrigatório")
     private EnumPlano planoAcademia;

@@ -1,6 +1,8 @@
 package com.example.sistema_academia.domain.services;
 
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,10 +34,18 @@ public class AlunoService{
     }
 
     public boolean fazerRematricula(Rematricula rematricula){
-        if(validarCPFAluno(rematricula.getAluno().getCpf())){
-            return true;
+       
+        Aluno aluno = buscarAlunoPorCpf(rematricula.getCpf());
+
+         if (aluno == null) {
+            return false;
         }
-        return false;
+
+        rematricula.setDataRematricula(LocalDate.now());
+
+
+        return alunoContract.fazerRematricula(rematricula);
+
     }
 
     public Page<Aluno> listarAlunos(Pageable pageable){
@@ -51,5 +61,9 @@ public class AlunoService{
 
     public Aluno buscarAlunoPorCpf(String cpf){
         return alunoContract.buscarAlunoPorCpf(cpf);
+    }
+
+    public Aluno buscarAlunoPorNome(String nome){
+        return alunoContract.buscarAlunoPorNome(nome);
     }
 }

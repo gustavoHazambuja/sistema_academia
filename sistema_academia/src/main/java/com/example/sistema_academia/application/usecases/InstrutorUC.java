@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.example.sistema_academia.application.dtos.InstrutorDTO;
+import com.example.sistema_academia.application.dtos.InstrutorDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.InstrutorResumoDTO;
 import com.example.sistema_academia.application.dtos.TreinoDTO;
 import com.example.sistema_academia.domain.entities.Instrutor;
@@ -50,6 +51,12 @@ public class InstrutorUC {
         return instrutorService.criarTreino(treino);
     }
 
+    public InstrutorDetalhadoDTO buscarInstrutorPorNome(String nome){
+        
+        Instrutor instrutor = instrutorService.buscarInstrutorPorNome(nome);
+        return InstrutorDetalhadoDTO.fromModel(instrutor);
+    }
+
 
 
 
@@ -66,8 +73,8 @@ public class InstrutorUC {
 
     private Treino toModel(TreinoDTO dto){
         return new Treino(
-            dto.getAluno(),
-            dto.getInstrutor(),
+            dto.getNomeALuno(),
+            dto.getNomeInstrutor(),
             dto.getObjetivo(),
             dto.getDatacriacao());
     }
