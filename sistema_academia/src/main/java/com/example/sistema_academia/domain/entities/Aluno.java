@@ -40,7 +40,7 @@ public class Aluno {
 
     
 
-    public Aluno(int id, String nome, String email,LocalDate dataMatricula,EnumPlano planoAcademia) {
+    public Aluno(Integer id, String nome, String email,LocalDate dataMatricula,EnumPlano planoAcademia) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -52,7 +52,7 @@ public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     
     @NotBlank (message = "O CPF é obrigatório") @Column(unique = true)
     private String cpf;

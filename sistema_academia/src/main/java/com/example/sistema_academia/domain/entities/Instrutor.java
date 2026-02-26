@@ -43,7 +43,7 @@ public class Instrutor {
 
     
 
-    public Instrutor(int id, String nome, String email,String telefone, String formação,EnumTurno turnoAula) {
+    public Instrutor(Integer id, String nome, String email,String telefone, String formação,EnumTurno turnoAula) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -56,7 +56,7 @@ public class Instrutor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @NotBlank (message = "O CPF é obrigatório") @Column(unique = true)
     private String cpf;
