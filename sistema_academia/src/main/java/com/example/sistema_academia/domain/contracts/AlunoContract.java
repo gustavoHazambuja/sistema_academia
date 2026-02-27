@@ -1,5 +1,7 @@
 package com.example.sistema_academia.domain.contracts;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,6 +17,6 @@ public interface AlunoContract {
     boolean fazerRematricula(Rematricula rematricula);
     Page<Aluno> listarAlunos(Pageable pageable);
     boolean deletarAlunoPorId(int id);
-    Aluno buscarAlunoPorCpf(String cpf);
-    Aluno buscarAlunoPorNome(String nome);
+    Optional<Aluno> buscarAlunoPorCpf(String cpf);
+    Optional<Aluno> buscarAlunoPorNome(String nome);
 }

@@ -1,5 +1,7 @@
 package com.example.sistema_academia.domain.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,14 +48,14 @@ public class InstrutorService {
         return instrutorContract.validarNomeInstrutor(nomeinstrutor);
     }
 
-    public Instrutor buscarInstrutorPorNome(String nome){
+    public Optional<Instrutor> buscarInstrutorPorNome(String nome){
         return instrutorContract.buscarInstrutorPorNome(nome);
     }
 
     public boolean criarTreino(Treino treino){
        
-        Aluno aluno = alunoService.buscarAlunoPorNome(treino.getNomeAluno());
-        Instrutor instrutor = buscarInstrutorPorNome(treino.getNomeInstrutor());
+        Aluno aluno = alunoService.buscarAlunoPorNome(treino.getNomeAluno()).get();
+        Instrutor instrutor = buscarInstrutorPorNome(treino.getNomeInstrutor()).get();
 
 
         if(aluno == null || instrutor == null){

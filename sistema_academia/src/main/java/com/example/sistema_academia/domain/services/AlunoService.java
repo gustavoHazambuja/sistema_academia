@@ -2,6 +2,7 @@ package com.example.sistema_academia.domain.services;
 
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,7 +36,7 @@ public class AlunoService{
 
     public boolean fazerRematricula(Rematricula rematricula){
        
-        Aluno aluno = buscarAlunoPorCpf(rematricula.getCpf());
+        Optional<Aluno> aluno = buscarAlunoPorCpf(rematricula.getCpf());
 
          if (aluno == null) {
             return false;
@@ -59,11 +60,11 @@ public class AlunoService{
         return false;
     }
 
-    public Aluno buscarAlunoPorCpf(String cpf){
+    public Optional<Aluno> buscarAlunoPorCpf(String cpf){
         return alunoContract.buscarAlunoPorCpf(cpf);
     }
 
-    public Aluno buscarAlunoPorNome(String nome){
+    public Optional<Aluno> buscarAlunoPorNome(String nome){
         return alunoContract.buscarAlunoPorNome(nome);
     }
 }

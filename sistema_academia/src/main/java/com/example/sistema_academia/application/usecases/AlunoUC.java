@@ -47,12 +47,12 @@ public class AlunoUC {
     }
 
     public AlunoDetalhadoDTO buscarAlunoPorCpf(String cpf){
-        Aluno aluno = alunoService.buscarAlunoPorCpf(cpf);
+        Aluno aluno = alunoService.buscarAlunoPorCpf(cpf).get();
         return AlunoDetalhadoDTO.fromModel(aluno);
     }
 
     public AlunoDetalhadoDTO buscarAlunoPorNome(String nome){
-        Aluno aluno = alunoService.buscarAlunoPorNome(nome);
+        Aluno aluno = alunoService.buscarAlunoPorNome(nome).get();
         return AlunoDetalhadoDTO.fromModel(aluno);
     }
 

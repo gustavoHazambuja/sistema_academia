@@ -53,7 +53,7 @@ public class InstrutorUC {
 
     public InstrutorDetalhadoDTO buscarInstrutorPorNome(String nome){
         
-        Instrutor instrutor = instrutorService.buscarInstrutorPorNome(nome);
+        Instrutor instrutor = instrutorService.buscarInstrutorPorNome(nome).get();
         return InstrutorDetalhadoDTO.fromModel(instrutor);
     }
 
