@@ -4,6 +4,7 @@ package com.example.sistema_academia.domain.entities;
 import java.time.LocalDate;
 
 import com.example.sistema_academia.domain.enums.EnumPlano;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tools.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 @Entity
 @Table(name = "tb_aluno")
@@ -67,6 +69,7 @@ public class Aluno {
     private String telefone;
 
     @NotNull
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
 
     @NotNull

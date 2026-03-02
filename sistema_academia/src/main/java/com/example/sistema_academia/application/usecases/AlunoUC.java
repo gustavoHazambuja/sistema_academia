@@ -3,6 +3,7 @@ package com.example.sistema_academia.application.usecases;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Component;
 
 import com.example.sistema_academia.application.dtos.AlunoDTO;
 import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
@@ -12,6 +13,7 @@ import com.example.sistema_academia.domain.entities.Aluno;
 import com.example.sistema_academia.domain.entities.Rematricula;
 import com.example.sistema_academia.domain.services.AlunoService;
 
+@Component
 public class AlunoUC {
     
     @Autowired

@@ -22,7 +22,7 @@ import com.example.sistema_academia.application.dtos.RematriculaDTO;
 import com.example.sistema_academia.application.usecases.AlunoUC;
 
 @RestController
-@RequestMapping(value = "/aluno")
+@RequestMapping(value = "/alunos")
 public class AlunoController {
     
 

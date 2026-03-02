@@ -10,6 +10,6 @@ public interface InstrutorJPARep extends JpaRepository<Instrutor, Integer> {
     
     Optional<Instrutor> findInstrutorIgnoringCaseContainingByNome(String nome);
     boolean existsById(int id);
-    boolean existesByCpf(String cpf);
+    boolean existsByCpf(String cpf);
     boolean existsIgnoringCaseContainingByNome(String nome);
 }

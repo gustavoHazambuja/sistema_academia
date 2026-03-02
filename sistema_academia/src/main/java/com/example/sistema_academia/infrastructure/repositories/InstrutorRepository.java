@@ -36,7 +36,7 @@ public class InstrutorRepository implements InstrutorContract{
 
     @Override
     public boolean validarCPFInstrutor(String cpf){
-        return instrutorJPARep.existesByCpf(cpf);
+        return instrutorJPARep.existsByCpf(cpf);
     }
 
     @Override

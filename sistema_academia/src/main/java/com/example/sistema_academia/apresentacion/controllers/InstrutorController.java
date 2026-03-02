@@ -20,7 +20,7 @@ import com.example.sistema_academia.application.dtos.TreinoDTO;
 import com.example.sistema_academia.application.usecases.InstrutorUC;
 
 @RestController
-@RequestMapping(value = "/instrutor")
+@RequestMapping(value = "/instrutores")
 public class InstrutorController {
     
     @Autowired

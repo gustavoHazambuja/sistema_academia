@@ -24,10 +24,18 @@ public class AlunoService{
     }
 
     public boolean cadastrarAluno(Aluno aluno){
-        if(validarCPFAluno(aluno.getCpf())){
-            return true;
+        
+        if(aluno == null){
+            return false;
         }
-        return false;
+
+        boolean cpfJaExiste = validarCPFAluno(aluno.getCpf());
+        
+        if(cpfJaExiste){
+            return false;
+        }
+
+        return true;
     }
 
     public boolean validarIdAluno(int id){
