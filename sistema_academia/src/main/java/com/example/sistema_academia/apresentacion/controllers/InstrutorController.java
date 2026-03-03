@@ -19,6 +19,8 @@ import com.example.sistema_academia.application.dtos.InstrutorResumoDTO;
 import com.example.sistema_academia.application.dtos.TreinoDTO;
 import com.example.sistema_academia.application.usecases.InstrutorUC;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/instrutores")
 public class InstrutorController {
@@ -38,7 +40,7 @@ public class InstrutorController {
     }
 
     @PostMapping(value = "/cadastroInstrutor")
-    public ResponseEntity<?> cadastrarInstrutor(@RequestBody InstrutorDTO dto){
+    public ResponseEntity<?> cadastrarInstrutor(@Valid @RequestBody InstrutorDTO dto){
         boolean resposta = instrutorUC.cadastrarInstrutor(dto);
 
         if(resposta){
@@ -69,8 +71,8 @@ public class InstrutorController {
     }
 
 
-    @GetMapping(value = "/criarTreino")
-    public ResponseEntity<?> criarTreino(@RequestBody TreinoDTO dto){
+    @PostMapping(value = "/criarTreino")
+    public ResponseEntity<?> criarTreino(@Valid @RequestBody TreinoDTO dto){
         boolean resposta = instrutorUC.criarTreino(dto);
 
         if(resposta){

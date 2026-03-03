@@ -60,12 +60,12 @@ public class InstrutorRepository implements InstrutorContract{
 
     @Override
     public boolean validarNomeAluno(String nome){
-        return instrutorJPARep.existsIgnoringCaseContainingByNome(nome);
+        return instrutorJPARep.existsIgnoringCaseByNome(nome);
     }
 
     @Override
     public boolean validarNomeInstrutor(String nome){
-        return instrutorJPARep.existsIgnoringCaseContainingByNome(nome);
+        return instrutorJPARep.existsIgnoringCaseByNome(nome);
     }
 
     @Override

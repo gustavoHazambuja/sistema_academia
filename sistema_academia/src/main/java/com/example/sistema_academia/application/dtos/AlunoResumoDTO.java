@@ -20,7 +20,7 @@ public class AlunoResumoDTO {
     private int id;
     private String nome;
     private String email;
-    private LocalDate dataMatricula;
+    private LocalDate dataMatricula = LocalDate.now();
     private EnumPlano planoAcademia;
 
 

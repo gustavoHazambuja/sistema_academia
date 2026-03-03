@@ -15,12 +15,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tools.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 @Entity
 @Table(name = "tb_aluno")
@@ -56,26 +54,12 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @NotBlank (message = "O CPF é obrigatório") @Column(unique = true)
     private String cpf;
-
-    @NotBlank (message = "O nome é obrigatório")
     private String nome;
-
-    @NotBlank (message = "O email é obrigatório") @Column(unique = true)
     private String email;
-
-    @NotBlank (message = "O telefone é obrigatório") @Column(unique = true)
     private String telefone;
-
-    @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
-
-    @NotNull
     private LocalDate dataMatricula = LocalDate.now();
-    
-    @NotBlank (message = "O plano de adademia é obrigatório")
     private EnumPlano planoAcademia;
 
     @ManyToOne

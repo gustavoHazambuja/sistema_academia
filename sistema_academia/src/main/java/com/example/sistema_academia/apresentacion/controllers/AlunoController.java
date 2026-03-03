@@ -21,6 +21,8 @@ import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
 import com.example.sistema_academia.application.dtos.RematriculaDTO;
 import com.example.sistema_academia.application.usecases.AlunoUC;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/alunos")
 public class AlunoController {
@@ -35,7 +37,7 @@ public class AlunoController {
     }
 
     @PostMapping(value = "/cadastroAluno")
-    public ResponseEntity<?> cadastrarAluno(@RequestBody AlunoDTO dto){
+    public ResponseEntity<?> cadastrarAluno(@Valid @RequestBody AlunoDTO dto){
         boolean resposta = alunoUC.cadastrarAluno(dto);
 
         if(resposta){
@@ -54,7 +56,7 @@ public class AlunoController {
     }
 
     @PostMapping(value = "/rematricula")
-    public ResponseEntity<?> fazerRematricula(@RequestBody RematriculaDTO dto){
+    public ResponseEntity<?> fazerRematricula(@Valid @RequestBody RematriculaDTO dto){
 
         boolean resposta = alunoUC.fazerRematricula(dto);
 

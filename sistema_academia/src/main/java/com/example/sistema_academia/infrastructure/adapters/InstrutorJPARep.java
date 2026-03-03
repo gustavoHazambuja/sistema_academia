@@ -11,5 +11,5 @@ public interface InstrutorJPARep extends JpaRepository<Instrutor, Integer> {
     Optional<Instrutor> findInstrutorIgnoringCaseContainingByNome(String nome);
     boolean existsById(int id);
     boolean existsByCpf(String cpf);
-    boolean existsIgnoringCaseContainingByNome(String nome);
+    boolean existsIgnoringCaseByNome(String nome);
 }

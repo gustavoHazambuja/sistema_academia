@@ -37,15 +37,8 @@ public class Treino {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotNull
     private String nomeAluno;
-
-    @NotNull
     private String nomeInstrutor;
-
-    @NotBlank(message = "O objetivo é obtigatório")
     private String objetivo;
-
-    @NotNull
     private LocalDate dataCriacao = LocalDate.now();
 }

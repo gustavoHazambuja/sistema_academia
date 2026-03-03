@@ -26,10 +26,18 @@ public class InstrutorService {
     }
 
     public boolean cadastrarInstrutor(Instrutor instrutor){
-        if(validarCPFInstrutor(instrutor.getCpf())){
-            return true;
+        
+        if(instrutor == null){
+            return false;
         }
-        return false;
+
+        boolean cpfJaExiste = validarCPFInstrutor(instrutor.getCpf());
+
+        if(cpfJaExiste){
+            return false;
+        }
+
+        return true;
     }
 
     public boolean validarIdInstrutor(int id){
