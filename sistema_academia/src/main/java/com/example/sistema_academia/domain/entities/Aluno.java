@@ -4,7 +4,6 @@ package com.example.sistema_academia.domain.entities;
 import java.time.LocalDate;
 
 import com.example.sistema_academia.domain.enums.EnumPlano;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +13,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,9 +28,10 @@ public class Aluno {
 
     
 
-    public Aluno(String cpf,String nome,String telefone, LocalDate dataNascimento, EnumPlano planoAcademia) {
+    public Aluno(String cpf,String nome,String email, String telefone, LocalDate dataNascimento, EnumPlano planoAcademia) {
         this.cpf = cpf;
         this.nome = nome;
+        this.email = email;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.planoAcademia = planoAcademia;
@@ -54,10 +53,17 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+    @Column(unique = true)
     private String cpf;
+
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
+    @Column(unique = true)
     private String telefone;
+    
     private LocalDate dataNascimento;
     private LocalDate dataMatricula = LocalDate.now();
     private EnumPlano planoAcademia;

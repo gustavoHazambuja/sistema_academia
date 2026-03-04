@@ -62,6 +62,7 @@ public class AlunoUC {
         return new Aluno(
             dto.getCpf(),
             dto.getNome(),
+            dto.getEmail(),
             dto.getTelefone(),
             dto.getDataNascimento(),
             dto.getPlanoAcademia());

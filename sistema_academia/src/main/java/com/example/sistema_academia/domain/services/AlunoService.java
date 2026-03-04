@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sistema_academia.domain.contracts.AlunoContract;
 import com.example.sistema_academia.domain.entities.Aluno;
 import com.example.sistema_academia.domain.entities.Rematricula;
 
 @Service
+@Transactional
 public class AlunoService{
     
     @Autowired
@@ -35,7 +37,7 @@ public class AlunoService{
             return false;
         }
 
-        return true;
+        return alunoContract.cadastrarAluno(aluno);
     }
 
     public boolean validarIdAluno(int id){
@@ -62,10 +64,13 @@ public class AlunoService{
     }
 
     public boolean deletarAlunoPorId(int id){
-        if(validarIdAluno(id)){
-            return true;
+
+        boolean idJaExiste = validarIdAluno(id);
+
+        if(!idJaExiste){
+            return false;
         }
-        return false;
+        return alunoContract.deletarAlunoPorId(id);
     }
 
     public Optional<Aluno> buscarAlunoPorCpf(String cpf){

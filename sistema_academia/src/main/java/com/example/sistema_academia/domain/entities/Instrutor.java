@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.example.sistema_academia.domain.enums.EnumTurno;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -55,10 +56,17 @@ public class Instrutor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(unique = true)
     private String cpf;
+
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
+    @Column(unique = true)
     private String telefone;
+    
     private LocalDate dataNascimento;
 
     private String formação;

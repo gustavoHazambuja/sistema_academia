@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,11 +34,11 @@ public class AlunoDTO {
     @NotBlank (message = "O telefone é obrigatório") @Size(min = 8, max = 12, message = "O telefone deve ter entre 8 e 12 caracteres")  @Column(unique = true)
     private String telefone;
 
-    @NotBlank
+    @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
 
-    @NotBlank(message = "O plano é obrigatório")
+    @NotNull(message = "O plano é obrigatório")
     private EnumPlano planoAcademia;
 
 }
