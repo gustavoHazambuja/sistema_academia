@@ -1,5 +1,6 @@
 package com.example.sistema_academia.infrastructure.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +70,7 @@ public class InstrutorRepository implements InstrutorContract{
     }
 
     @Override
-    public Optional<Instrutor> buscarInstrutorPorNome(String nome){
-        return instrutorJPARep.findInstrutorIgnoringCaseContainingByNome(nome);
+    public List<Instrutor> buscarInstrutorPorNome(String nome){
+        return instrutorJPARep.findByNomeContainingIgnoreCase(nome);
     }
 }

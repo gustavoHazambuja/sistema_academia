@@ -1,5 +1,6 @@
 package com.example.sistema_academia.domain.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,17 +59,17 @@ public class InstrutorService {
         return instrutorContract.validarNomeInstrutor(nomeinstrutor);
     }
 
-    public Optional<Instrutor> buscarInstrutorPorNome(String nome){
+    public List<Instrutor> buscarInstrutorPorNome(String nome){
         return instrutorContract.buscarInstrutorPorNome(nome);
     }
 
     public boolean criarTreino(Treino treino){
        
-        Aluno aluno = alunoService.buscarAlunoPorNome(treino.getNomeAluno()).get();
-        Instrutor instrutor = buscarInstrutorPorNome(treino.getNomeInstrutor()).get();
+        List<Aluno> alunos = alunoService.buscarAlunoPorNome(treino.getNomeAluno());
+        List<Instrutor> instrutores = buscarInstrutorPorNome(treino.getNomeInstrutor());
 
 
-        if(aluno == null || instrutor == null){
+        if(alunos == null || instrutores == null){
             return false;
         }
 

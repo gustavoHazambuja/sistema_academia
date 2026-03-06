@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import com.example.sistema_academia.domain.enums.EnumTurno;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -33,7 +32,7 @@ public class InstrutorDTO {
     @NotBlank (message = "O telefone é obrigatório") @Size(min = 8, max = 12, message = "O telefone deve ter entre 8 e 12 caracteres")  
     private String telefone;
 
-    @NotNull (message = "O telefone é obrigatório") @Size(min = 8, max = 12, message = "O telefone deve ter entre 8 e 12 caracteres")
+    @NotNull (message =  "A data de nascimento é obrigatória")
     private LocalDate dataNascimento;
 
     @NotBlank(message = "A formação é obrigatório")

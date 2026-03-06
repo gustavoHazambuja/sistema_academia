@@ -1,6 +1,6 @@
 package com.example.sistema_academia.domain.contracts;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,5 +17,5 @@ public interface InstrutorContract {
         boolean criarTreino(Treino treino);
         boolean validarNomeAluno(String nomeAluno);
         boolean validarNomeInstrutor(String nomeinstrutor);
-        Optional<Instrutor> buscarInstrutorPorNome(String nome);
+        List<Instrutor> buscarInstrutorPorNome(String nome);
 }

@@ -1,5 +1,6 @@
 package com.example.sistema_academia.infrastructure.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +59,8 @@ public class AlunoRepository implements AlunoContract {
     }
 
     @Override
-    public boolean deletarAlunoPorId(int id){
-        return alunoJPARepjpaRep.deleteAlunoById(id);
+    public void deletarAlunoPorId(int id){
+        alunoJPARepjpaRep.deleteById(id);
     }
 
     @Override
@@ -68,7 +69,7 @@ public class AlunoRepository implements AlunoContract {
     }
 
     @Override
-    public Optional<Aluno> buscarAlunoPorNome(String nome){
-        return alunoJPARepjpaRep.findAlunoIgnoringCaseContainingByNome(nome);
+    public List<Aluno> buscarAlunoPorNome(String nome){
+        return alunoJPARepjpaRep.findByNomeContainingIgnoreCase(nome);
     }
 }

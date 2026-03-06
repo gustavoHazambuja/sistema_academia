@@ -2,6 +2,7 @@ package com.example.sistema_academia.domain.services;
 
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,7 @@ public class AlunoService{
             return false;
         }
 
+        rematricula.setPlanoAcademia(rematricula.getPlanoAcademia());
         rematricula.setDataRematricula(LocalDate.now());
 
 
@@ -63,21 +65,16 @@ public class AlunoService{
        return alunoContract.listarAlunos(pageable);
     }
 
-    public boolean deletarAlunoPorId(int id){
+    public void deletarAlunoPorId(int id){
 
-        boolean idJaExiste = validarIdAluno(id);
-
-        if(!idJaExiste){
-            return false;
-        }
-        return alunoContract.deletarAlunoPorId(id);
+        alunoContract.deletarAlunoPorId(id);
     }
 
     public Optional<Aluno> buscarAlunoPorCpf(String cpf){
         return alunoContract.buscarAlunoPorCpf(cpf);
     }
 
-    public Optional<Aluno> buscarAlunoPorNome(String nome){
+    public List<Aluno> buscarAlunoPorNome(String nome){
         return alunoContract.buscarAlunoPorNome(nome);
     }
 }

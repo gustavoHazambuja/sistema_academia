@@ -27,7 +27,7 @@ public class Treino {
         this.nomeAluno = nomeAluno;
         this.nomeInstrutor = nomeInstrutor;
         this.objetivo = objetivo;
-    this.dataCriacao = LocalDate.now();
+        this.dataCriacao = LocalDate.now();
     }
 
 

@@ -1,6 +1,8 @@
 package com.example.sistema_academia.application.usecases;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -53,10 +55,13 @@ public class InstrutorUC {
         return instrutorService.criarTreino(treino);
     }
 
-    public InstrutorDetalhadoDTO buscarInstrutorPorNome(String nome){
+    public List<InstrutorDetalhadoDTO> buscarInstrutorPorNome(String nome){
         
-        Instrutor instrutor = instrutorService.buscarInstrutorPorNome(nome).get();
-        return InstrutorDetalhadoDTO.fromModel(instrutor);
+        List<Instrutor> instrutores = instrutorService.buscarInstrutorPorNome(nome);
+        
+        return instrutores.stream()
+            .map(InstrutorDetalhadoDTO::fromModel)
+            .toList();
     }
 
 

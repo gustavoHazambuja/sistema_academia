@@ -1,5 +1,7 @@
 package com.example.sistema_academia.application.usecases;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -39,8 +41,8 @@ public class AlunoUC {
         return alunoService.fazerRematricula(rematricula);
     }
 
-    public boolean deletarAlunoPorId(int id){
-        return alunoService.deletarAlunoPorId(id);
+    public void deletarAlunoPorId(int id){
+        alunoService.deletarAlunoPorId(id);
     }
 
     public Page<AlunoResumoDTO> listarAlunos(Pageable pageable){
@@ -53,9 +55,12 @@ public class AlunoUC {
         return AlunoDetalhadoDTO.fromModel(aluno);
     }
 
-    public AlunoDetalhadoDTO buscarAlunoPorNome(String nome){
-        Aluno aluno = alunoService.buscarAlunoPorNome(nome).get();
-        return AlunoDetalhadoDTO.fromModel(aluno);
+    public List<AlunoDetalhadoDTO> buscarAlunoPorNome(String nome){
+        List<Aluno> alunos = alunoService.buscarAlunoPorNome(nome);
+        
+        return alunos.stream()
+                .map(AlunoDetalhadoDTO::fromModel)
+                .toList();
     }
 
     private Aluno toModel(AlunoDTO dto){

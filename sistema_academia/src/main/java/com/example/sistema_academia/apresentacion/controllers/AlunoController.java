@@ -1,5 +1,6 @@
 package com.example.sistema_academia.apresentacion.controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,8 +72,8 @@ public class AlunoController {
     }
 
     @DeleteMapping(value = "/deletarAluno/{id}")
-    public boolean deletarALunoPorId(@PathVariable int id){
-        return alunoUC.deletarAlunoPorId(id);
+    public void deletarALunoPorId(@PathVariable int id){
+         alunoUC.deletarAlunoPorId(id);
     }
 
     @GetMapping(value = "/listarAlunos")
@@ -82,10 +83,18 @@ public class AlunoController {
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
-    @GetMapping(value = "/buscar/{cpf}")
+    @GetMapping(value = "/buscarPorCpf/{cpf}")
     public ResponseEntity<AlunoDetalhadoDTO> buscarALunoPorCpf(@PathVariable String cpf){
 
         AlunoDetalhadoDTO result = alunoUC.buscarAlunoPorCpf(cpf);
+        return new ResponseEntity<>(result,HttpStatus.FOUND);
+    }
+
+
+    @GetMapping(value = "/buscarPorNome/{nome}")
+    public ResponseEntity<List<AlunoDetalhadoDTO>> buscarAlunoPorNome(@PathVariable String nome){
+
+        List<AlunoDetalhadoDTO> result = alunoUC.buscarAlunoPorNome(nome);
         return new ResponseEntity<>(result,HttpStatus.FOUND);
     }
 }
