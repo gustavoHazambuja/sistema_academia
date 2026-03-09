@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sistema_academia.application.dtos.AlunoDTO;
 import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
-import com.example.sistema_academia.application.dtos.RematriculaDTO;
 import com.example.sistema_academia.application.usecases.AlunoUC;
 
 import jakarta.validation.Valid;
@@ -56,21 +55,6 @@ public class AlunoController {
         return alunoUC.validarIdAluno(id);
     }
 
-    @PostMapping(value = "/rematricula")
-    public ResponseEntity<?> fazerRematricula(@Valid @RequestBody RematriculaDTO dto){
-
-        boolean resposta = alunoUC.fazerRematricula(dto);
-
-        if(resposta){
-            return ResponseEntity.status(HttpStatus.CREATED)
-                .body(Map.of("resposta: ", resposta, "mensagem: ", "Rematrícula feita com sucesso." ));
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Map.of("resposta: ", resposta, "mensagem: ", "CPF não cadastrado." ));
-        }
-    }
-
     @DeleteMapping(value = "/deletarAluno/{id}")
     public void deletarALunoPorId(@PathVariable int id){
          alunoUC.deletarAlunoPorId(id);
@@ -91,7 +75,7 @@ public class AlunoController {
     }
 
 
-    @GetMapping(value = "/buscarPorNome/{nome}")
+    @GetMapping(value = "/buscarPorNome/aluno/{nome}")
     public ResponseEntity<List<AlunoDetalhadoDTO>> buscarAlunoPorNome(@PathVariable String nome){
 
         List<AlunoDetalhadoDTO> result = alunoUC.buscarAlunoPorNome(nome);

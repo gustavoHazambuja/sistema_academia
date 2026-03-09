@@ -3,6 +3,7 @@ package com.example.sistema_academia.application.dtos;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreinoDTO {
+
+    @NotBlank(message = "O CPF é obrigatório") @Size(min = 11, max = 11, message = "O CPF precisa ter 11 caracteres.")
+    private String cpfAluno;
     
     @NotBlank(message = "O nome do aluno é obrigatório")
     private String nomeALuno;

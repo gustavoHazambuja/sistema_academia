@@ -23,7 +23,8 @@ public class Treino {
 
     
     
-    public Treino(String nomeAluno,String nomeInstrutor,String objetivo, LocalDate dataCriacao) {
+    public Treino(String cpfAluno, String nomeAluno,String nomeInstrutor,String objetivo, LocalDate dataCriacao) {
+        this.cpfAluno = cpfAluno;
         this.nomeAluno = nomeAluno;
         this.nomeInstrutor = nomeInstrutor;
         this.objetivo = objetivo;
@@ -35,6 +36,7 @@ public class Treino {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    private String cpfAluno;
     private String nomeAluno;
     private String nomeInstrutor;
     private String objetivo;

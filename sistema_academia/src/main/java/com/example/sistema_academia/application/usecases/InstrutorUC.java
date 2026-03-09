@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 import com.example.sistema_academia.application.dtos.InstrutorDTO;
 import com.example.sistema_academia.application.dtos.InstrutorDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.InstrutorResumoDTO;
-import com.example.sistema_academia.application.dtos.TreinoDTO;
 import com.example.sistema_academia.domain.entities.Instrutor;
-import com.example.sistema_academia.domain.entities.Treino;
 import com.example.sistema_academia.domain.services.InstrutorService;
 
 @Component
@@ -50,11 +48,6 @@ public class InstrutorUC {
         return instrutorService.validarNomeInstrutor(nome);
     }
 
-    public boolean criarTreino(TreinoDTO dto){
-        Treino treino = toModel(dto);
-        return instrutorService.criarTreino(treino);
-    }
-
     public List<InstrutorDetalhadoDTO> buscarInstrutorPorNome(String nome){
         
         List<Instrutor> instrutores = instrutorService.buscarInstrutorPorNome(nome);
@@ -62,6 +55,10 @@ public class InstrutorUC {
         return instrutores.stream()
             .map(InstrutorDetalhadoDTO::fromModel)
             .toList();
+    }
+
+    public void deletarInstrutorPorId(int id){
+        instrutorService.deletarInstrutorPorId(id);
     }
 
 
@@ -78,11 +75,4 @@ public class InstrutorUC {
             dto.getTurnoAula());
     }
 
-    private Treino toModel(TreinoDTO dto){
-        return new Treino(
-            dto.getNomeALuno(),
-            dto.getNomeInstrutor(),
-            dto.getObjetivo(),
-            dto.getDatacriacao());
-    }
 }

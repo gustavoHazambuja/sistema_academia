@@ -1,5 +1,6 @@
 package com.example.sistema_academia.apresentacion.controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sistema_academia.application.dtos.InstrutorDTO;
+import com.example.sistema_academia.application.dtos.InstrutorDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.InstrutorResumoDTO;
-import com.example.sistema_academia.application.dtos.TreinoDTO;
 import com.example.sistema_academia.application.usecases.InstrutorUC;
 
 import jakarta.validation.Valid;
@@ -70,21 +72,15 @@ public class InstrutorController {
         return instrutorUC.validarNomeInstrutor(nome);
     }
 
+    @GetMapping(value = "/buscarPorNome/instrutor/{nome}")
+    public ResponseEntity<List<InstrutorDetalhadoDTO>> buscarInstrutorPorNome(String nome){
 
-    @PostMapping(value = "/criarTreino")
-    public ResponseEntity<?> criarTreino(@Valid @RequestBody TreinoDTO dto){
-        boolean resposta = instrutorUC.criarTreino(dto);
-
-        if(resposta){
-            return ResponseEntity.status(HttpStatus.CREATED)
-                .body(Map.of("resposta: ", resposta, "mensagem: ", "Treino criado com sucesso." ));
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Map.of("resposta: ", resposta, "mensagem: ", "Nome do aluno ou do instrutor inválido." ));
-        }
-
+        List<InstrutorDetalhadoDTO> result = instrutorUC.buscarInstrutorPorNome(nome);
+        return new ResponseEntity<>(result,HttpStatus.FOUND);
     }
 
-
+    @DeleteMapping(value = "/deletar/{id}")
+    public void  deletarInstrutorPorId(@PathVariable int id){
+        instrutorUC.deletarInstrutorPorId(id);
+    }
 }

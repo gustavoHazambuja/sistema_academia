@@ -4,11 +4,13 @@ import java.time.LocalDate;
 
 import com.example.sistema_academia.domain.enums.EnumPlano;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,22 +27,25 @@ public class Rematricula {
 
     
 
-    public Rematricula(String cpf,EnumPlano planoAcademia,LocalDate dataRematricula) {
-        this.cpf = cpf;
+    public Rematricula(String cpfAluno,EnumPlano planoAcademia,LocalDate dataRematricula) {
+        this.cpfAluno = cpfAluno;
         this.planoAcademia = planoAcademia;
         this.dataRematricula = LocalDate.now();
+    }
+
+    public Rematricula(EnumPlano planoAcademia, LocalDate dataRematricula){
+        this.planoAcademia = planoAcademia;
+        this.dataRematricula = dataRematricula;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotNull
-    private String cpf;
+    @Column(unique = true)
+    private String cpfAluno;
 
-    @NotNull
     private EnumPlano planoAcademia;
 
-    @NotNull
     private LocalDate dataRematricula = LocalDate.now();
 }

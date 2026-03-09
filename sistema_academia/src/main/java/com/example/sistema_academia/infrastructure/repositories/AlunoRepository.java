@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.sistema_academia.domain.contracts.AlunoContract;
 import com.example.sistema_academia.domain.entities.Aluno;
-import com.example.sistema_academia.domain.entities.Rematricula;
 import com.example.sistema_academia.infrastructure.adapters.AlunoJPARep;
-import com.example.sistema_academia.infrastructure.adapters.RematriculaJPARep;
 
 @Repository
 public class AlunoRepository implements AlunoContract {
@@ -20,9 +18,6 @@ public class AlunoRepository implements AlunoContract {
 
     @Autowired
     private AlunoJPARep alunoJPARepjpaRep;
-
-    @Autowired
-    private RematriculaJPARep rematriculaJPARep;
 
 
     @Override
@@ -42,15 +37,6 @@ public class AlunoRepository implements AlunoContract {
     @Override
     public boolean validarIdAluno(int id){
         return alunoJPARepjpaRep.existsById(id);
-    }
-
-    @Override
-    public boolean fazerRematricula(Rematricula rematricula){
-        if(rematricula == null){
-            return false;
-        }
-
-        return rematriculaJPARep.save(rematricula) != null;
     }
 
     @Override

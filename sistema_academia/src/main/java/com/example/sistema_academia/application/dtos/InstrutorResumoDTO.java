@@ -25,7 +25,7 @@ public class InstrutorResumoDTO {
     public static InstrutorResumoDTO fromModel(Instrutor instrutor){
         return new InstrutorResumoDTO(
             instrutor.getId(),
-            instrutor.getCpf(),
+            instrutor.getNome(),
             instrutor.getEmail(),
             instrutor.getFormação(),
             instrutor.getTurnoAula());

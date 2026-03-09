@@ -1,7 +1,6 @@
 package com.example.sistema_academia.domain.services;
 
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sistema_academia.domain.contracts.AlunoContract;
 import com.example.sistema_academia.domain.entities.Aluno;
-import com.example.sistema_academia.domain.entities.Rematricula;
 
 @Service
 @Transactional
@@ -43,22 +41,6 @@ public class AlunoService{
 
     public boolean validarIdAluno(int id){
         return alunoContract.validarIdAluno(id);
-    }
-
-    public boolean fazerRematricula(Rematricula rematricula){
-       
-        Optional<Aluno> aluno = buscarAlunoPorCpf(rematricula.getCpf());
-
-         if (aluno == null) {
-            return false;
-        }
-
-        rematricula.setPlanoAcademia(rematricula.getPlanoAcademia());
-        rematricula.setDataRematricula(LocalDate.now());
-
-
-        return alunoContract.fazerRematricula(rematricula);
-
     }
 
     public Page<Aluno> listarAlunos(Pageable pageable){

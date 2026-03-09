@@ -10,9 +10,7 @@ import org.springframework.stereotype.Component;
 import com.example.sistema_academia.application.dtos.AlunoDTO;
 import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
-import com.example.sistema_academia.application.dtos.RematriculaDTO;
 import com.example.sistema_academia.domain.entities.Aluno;
-import com.example.sistema_academia.domain.entities.Rematricula;
 import com.example.sistema_academia.domain.services.AlunoService;
 
 @Component
@@ -34,11 +32,6 @@ public class AlunoUC {
         Aluno aluno = toModel(dto);
         return alunoService.cadastrarAluno(aluno);
 
-    }
-
-    public boolean fazerRematricula(RematriculaDTO dto){
-        Rematricula rematricula = toModel(dto);
-        return alunoService.fazerRematricula(rematricula);
     }
 
     public void deletarAlunoPorId(int id){
@@ -73,12 +66,6 @@ public class AlunoUC {
             dto.getPlanoAcademia());
     }
 
-    private Rematricula toModel(RematriculaDTO dto){
-        return new Rematricula(
-            dto.getCpf(),
-            dto.getPlanoAcademia(),
-            dto.getDataRematricula());
-    }
 }
 
 
