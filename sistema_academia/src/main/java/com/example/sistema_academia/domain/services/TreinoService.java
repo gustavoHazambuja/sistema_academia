@@ -1,6 +1,7 @@
 package com.example.sistema_academia.domain.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,10 +26,10 @@ public class TreinoService {
 
     public boolean criarTreino(Treino treino){
         
-        List<Instrutor> instrutores = instrutorService.buscarInstrutorPorNome(treino.getNomeInstrutor());
-        List<Aluno> alunos = alunoService.buscarAlunoPorNome(treino.getNomeAluno());
+        Optional<Instrutor> instrutores = instrutorService.buscarInstrutorPorId(treino.getInstrutor_id());
+        Optional<Aluno> alunos = alunoService.buscarAlunoPorId(treino.getAluno_id());
 
-        if(alunos == null || instrutores == null){
+        if(alunos.isEmpty() || instrutores.isEmpty()){
             return false;
         }
 

@@ -23,22 +23,22 @@ public class Treino {
 
     
     
-    public Treino(String cpfAluno, String nomeAluno,String nomeInstrutor,String objetivo, LocalDate dataCriacao) {
+    public Treino(String cpfAluno, Integer aluno_id,Integer instrutor_id,String objetivo, LocalDate dataCriacao) {
         this.cpfAluno = cpfAluno;
-        this.nomeAluno = nomeAluno;
-        this.nomeInstrutor = nomeInstrutor;
+        this.aluno_id = aluno_id;
+        this.instrutor_id = instrutor_id;
         this.objetivo = objetivo;
         this.dataCriacao = LocalDate.now();
     }
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String cpfAluno;
-    private String nomeAluno;
-    private String nomeInstrutor;
+    private Integer aluno_id;
+    private Integer instrutor_id;
     private String objetivo;
     private LocalDate dataCriacao = LocalDate.now();
 }

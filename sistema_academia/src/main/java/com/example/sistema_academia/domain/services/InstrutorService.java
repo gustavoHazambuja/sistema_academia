@@ -1,6 +1,7 @@
 package com.example.sistema_academia.domain.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -59,6 +60,10 @@ public class InstrutorService {
 
     public void deletarInstrutorPorId(int id){
          instrutorContract.deletarInstrutorPorId(id);
+    }
+
+    public Optional<Instrutor> buscarInstrutorPorId(int id){
+        return instrutorContract.buscarInstrutorPorId(id);
     }
 
    

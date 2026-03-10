@@ -36,6 +36,7 @@ public class RematriculaUC {
     private Rematricula toModel(RematriculaDTO dto){
         return new Rematricula(
             dto.getCpfAluno(),
+            dto.getAluno_id(),
             dto.getPlanoAcademia(),
             dto.getDataRematricula()
         );

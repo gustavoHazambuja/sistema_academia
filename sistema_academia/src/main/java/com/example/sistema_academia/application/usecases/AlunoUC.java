@@ -56,6 +56,15 @@ public class AlunoUC {
                 .toList();
     }
 
+    public AlunoDetalhadoDTO buscarAlunoPorId(int id){
+        Aluno aluno = alunoService.buscarAlunoPorId(id).get();
+        return AlunoDetalhadoDTO.fromModel(aluno);
+    }
+
+    
+
+
+
     private Aluno toModel(AlunoDTO dto){
         return new Aluno(
             dto.getCpf(),

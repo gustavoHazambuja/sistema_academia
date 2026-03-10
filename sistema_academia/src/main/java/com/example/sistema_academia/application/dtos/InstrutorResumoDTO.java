@@ -27,7 +27,7 @@ public class InstrutorResumoDTO {
             instrutor.getId(),
             instrutor.getNome(),
             instrutor.getEmail(),
-            instrutor.getFormação(),
+            instrutor.getFormacao(),
             instrutor.getTurnoAula());
     }
 }

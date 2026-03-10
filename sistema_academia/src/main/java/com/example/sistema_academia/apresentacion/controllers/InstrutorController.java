@@ -79,7 +79,7 @@ public class InstrutorController {
         return new ResponseEntity<>(result,HttpStatus.FOUND);
     }
 
-    @DeleteMapping(value = "/deletar/{id}")
+    @DeleteMapping(value = "/deletarInstrutor/{id}")
     public void  deletarInstrutorPorId(@PathVariable int id){
         instrutorUC.deletarInstrutorPorId(id);
     }

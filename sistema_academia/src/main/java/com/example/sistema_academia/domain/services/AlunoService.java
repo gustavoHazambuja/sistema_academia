@@ -59,4 +59,8 @@ public class AlunoService{
     public List<Aluno> buscarAlunoPorNome(String nome){
         return alunoContract.buscarAlunoPorNome(nome);
     }
+
+    public Optional<Aluno> buscarAlunoPorId(int id){
+        return alunoContract.buscarAlunoPorId(id);
+    }
 }

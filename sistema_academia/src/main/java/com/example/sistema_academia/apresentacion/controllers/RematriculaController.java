@@ -38,7 +38,7 @@ public class RematriculaController{
         }
         else{
             return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Map.of("resposta: ", resposta, "mensagem: ", "CPF não cadastrado."));
+                .body(Map.of("resposta: ", resposta, "mensagem: ", "CPF Ou ID inválido."));
         }
     }
 

@@ -29,31 +29,31 @@ public class Instrutor {
 
     
     
-    public Instrutor(String cpf,String nome,String email,String telefone,LocalDate dataNascimento,String formação,EnumTurno turnoAula) {
+    public Instrutor(String cpf,String nome,String email,String telefone,LocalDate dataNascimento,String formacao,EnumTurno turnoAula) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
-        this.formação = formação;
+        this.formacao = formacao;
         this.turnoAula = turnoAula;
     }
 
     
 
-    public Instrutor(Integer id, String nome, String email,String telefone, String formação,EnumTurno turnoAula) {
+    public Instrutor(Integer id, String nome, String email,String telefone, String formacao,EnumTurno turnoAula) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.formação = formação;
+        this.formacao = formacao;
         this.turnoAula = turnoAula;
     }
 
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(unique = true)
@@ -69,7 +69,7 @@ public class Instrutor {
     
     private LocalDate dataNascimento;
 
-    private String formação;
+    private String formacao;
 
     @OneToMany(mappedBy = "instrutor")
     private List<Aluno> alunos = new ArrayList<>();

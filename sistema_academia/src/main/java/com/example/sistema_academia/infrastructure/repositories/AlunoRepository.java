@@ -17,7 +17,7 @@ public class AlunoRepository implements AlunoContract {
     
 
     @Autowired
-    private AlunoJPARep alunoJPARepjpaRep;
+    private AlunoJPARep alunoJPARep;
 
 
     @Override
@@ -26,36 +26,40 @@ public class AlunoRepository implements AlunoContract {
             return false;
         }
 
-        return alunoJPARepjpaRep.save(aluno) != null;
+        return alunoJPARep.save(aluno) != null;
     }
 
     @Override
     public boolean validarCPFAluno(String cpf){
-        return alunoJPARepjpaRep.existsByCpf(cpf);
+        return alunoJPARep.existsByCpf(cpf);
     }
 
     @Override
     public boolean validarIdAluno(int id){
-        return alunoJPARepjpaRep.existsById(id);
+        return alunoJPARep.existsById(id);
     }
 
     @Override
     public Page<Aluno> listarAlunos(Pageable pageable){
-        return alunoJPARepjpaRep.findAll(pageable);
+        return alunoJPARep.findAll(pageable);
     }
 
     @Override
     public void deletarAlunoPorId(int id){
-        alunoJPARepjpaRep.deleteById(id);
+        alunoJPARep.deleteById(id);
     }
 
     @Override
     public Optional<Aluno> buscarAlunoPorCpf(String cpf){
-        return alunoJPARepjpaRep.findAlunoByCpf(cpf);
+        return alunoJPARep.findAlunoByCpf(cpf);
     }
 
     @Override
     public List<Aluno> buscarAlunoPorNome(String nome){
-        return alunoJPARepjpaRep.findByNomeContainingIgnoreCase(nome);
+        return alunoJPARep.findByNomeContainingIgnoreCase(nome);
+    }
+
+    public Optional<Aluno> buscarAlunoPorId(int id){
+        return alunoJPARep.findById(id);
     }
 }

@@ -61,6 +61,11 @@ public class InstrutorUC {
         instrutorService.deletarInstrutorPorId(id);
     }
 
+    public InstrutorDetalhadoDTO buscarinstrutorPorId(int id){
+        Instrutor instrutor = instrutorService.buscarInstrutorPorId(id).get();
+        return InstrutorDetalhadoDTO.fromModel(instrutor);
+    }
+
 
 
 

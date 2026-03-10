@@ -8,5 +8,5 @@ import com.example.sistema_academia.domain.entities.Treino;
 
 public interface TreinoJPARep extends JpaRepository<Treino, Integer> {
     
-    List<Treino> findByCpfAluno(String cpf);
+    List<Treino> findByCpfAluno(String cpfAluno);
 }

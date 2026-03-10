@@ -17,12 +17,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RematriculaResumoDTO {
     
+    private Integer id;
     private EnumPlano planoAcademia;
     private LocalDate dataRematricula = LocalDate.now();
 
 
     public static RematriculaResumoDTO fromModel(Rematricula rematricula){
         return new RematriculaResumoDTO(
+            rematricula.getId(),
             rematricula.getPlanoAcademia(),
             rematricula.getDataRematricula()
         );

@@ -23,9 +23,15 @@ public class RematriculaService {
 
     public boolean fazerRematricula(Rematricula rematricula){
 
-        Optional<Aluno> aluno =  alunoService.buscarAlunoPorCpf(rematricula.getCpfAluno());
+        Optional<Aluno> aluno =  alunoService.buscarAlunoPorId(rematricula.getAluno_id());
 
-        if(aluno == null){
+        if(aluno.isEmpty()){
+            return false;
+        }
+
+        boolean cpfJaExiste = alunoService.validarCPFAluno(rematricula.getCpfAluno());
+
+        if(!cpfJaExiste){
             return false;
         }
 

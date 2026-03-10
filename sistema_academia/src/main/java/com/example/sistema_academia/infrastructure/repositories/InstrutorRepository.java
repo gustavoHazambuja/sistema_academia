@@ -1,6 +1,7 @@
 package com.example.sistema_academia.infrastructure.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -62,5 +63,9 @@ public class InstrutorRepository implements InstrutorContract{
     @Override
     public void deletarInstrutorPorId(int id){
         instrutorJPARep.deleteById(id);
+    }
+
+    public Optional<Instrutor> buscarInstrutorPorId(int id){
+        return instrutorJPARep.findById(id);
     }
 }

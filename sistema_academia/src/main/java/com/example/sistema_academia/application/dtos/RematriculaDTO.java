@@ -18,9 +18,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RematriculaDTO {
-    
-    @NotBlank (message = "O CPF é obrigatório") @Size(min = 11, max = 11, message = "O CPF precisa ter 11 caracteres.")
+
+    @NotBlank(message = "O CPF é obrigatório") @Size(min = 11, max = 11, message = "O CPF precisa ter 11 caracteres.")
     private String cpfAluno;
+    
+    @NotNull (message = "O ID é obrigatório")
+    private Integer aluno_id;
 
     @NotNull(message = "O plano é obrigatório")
     private EnumPlano planoAcademia;

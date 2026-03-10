@@ -37,7 +37,7 @@ public class TreinoController {
         }
         else{
             return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Map.of("resposta: ", resposta, "mensagem: ", "CPF inválido ou nome de aluno ou instrutor inválidpos."));
+                .body(Map.of("resposta: ", resposta, "mensagem: ", "CPF inválido ou id do aluno ou do instrutor inválidos."));
         }
     }
 

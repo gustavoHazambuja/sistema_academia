@@ -28,7 +28,7 @@ public record InstrutorDetalhadoDTO(int id, String cpf, String nome,
             instrutor.getEmail(),
             instrutor.getTelefone(),
             instrutor.getDataNascimento(),
-            instrutor.getFormação(),
+            instrutor.getFormacao(),
             alunosDTO,
             instrutor.getTurnoAula());
     }

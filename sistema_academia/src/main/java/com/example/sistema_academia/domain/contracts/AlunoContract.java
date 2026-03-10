@@ -17,5 +17,6 @@ public interface AlunoContract {
     Page<Aluno> listarAlunos(Pageable pageable);
     void deletarAlunoPorId(int id);
     Optional<Aluno> buscarAlunoPorCpf(String cpf);
+    Optional<Aluno> buscarAlunoPorId(int id);
     List<Aluno> buscarAlunoPorNome(String nome);
 }
