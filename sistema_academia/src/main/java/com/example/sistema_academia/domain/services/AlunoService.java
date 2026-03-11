@@ -63,4 +63,8 @@ public class AlunoService{
     public Optional<Aluno> buscarAlunoPorId(int id){
         return alunoContract.buscarAlunoPorId(id);
     }
+
+    public boolean atualizarAluno(Aluno aluno){
+        return alunoContract.atualizarAluno(aluno);
+    }
 }

@@ -56,8 +56,9 @@ public class AlunoController {
     }
 
     @DeleteMapping(value = "/deletarAluno/{id}")
-    public void deletarALunoPorId(@PathVariable int id){
+    public ResponseEntity<Void> deletarALunoPorId(@PathVariable int id){
          alunoUC.deletarAlunoPorId(id);
+         return ResponseEntity.noContent().build();
     }
 
     @GetMapping(value = "/listarAlunos")
@@ -71,7 +72,7 @@ public class AlunoController {
     public ResponseEntity<AlunoDetalhadoDTO> buscarALunoPorCpf(@PathVariable String cpf){
 
         AlunoDetalhadoDTO result = alunoUC.buscarAlunoPorCpf(cpf);
-        return new ResponseEntity<>(result,HttpStatus.FOUND);
+        return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
 
@@ -79,6 +80,6 @@ public class AlunoController {
     public ResponseEntity<List<AlunoDetalhadoDTO>> buscarAlunoPorNome(@PathVariable String nome){
 
         List<AlunoDetalhadoDTO> result = alunoUC.buscarAlunoPorNome(nome);
-        return new ResponseEntity<>(result,HttpStatus.FOUND);
+        return new ResponseEntity<>(result,HttpStatus.OK);
     }
 }

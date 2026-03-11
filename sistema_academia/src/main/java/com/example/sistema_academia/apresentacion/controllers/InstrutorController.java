@@ -55,7 +55,7 @@ public class InstrutorController {
         }
     }
 
-    @GetMapping(value = "listarInstrutores")
+    @GetMapping(value = "/listarInstrutores")
     public ResponseEntity<Page<InstrutorResumoDTO>> listarInstrutores(Pageable pageable){
 
         Page<InstrutorResumoDTO> result = instrutorUC.listarInstrutores(pageable);
@@ -63,7 +63,7 @@ public class InstrutorController {
     }
 
     @GetMapping(value = "/validarNomeAluno/{nome}")
-    public boolean validarNomeALuno(@PathVariable String nome){
+    public boolean validarNomeAluno(@PathVariable String nome){
         return instrutorUC.validarNomeAluno(nome);
     }
 
@@ -73,14 +73,15 @@ public class InstrutorController {
     }
 
     @GetMapping(value = "/buscarPorNome/instrutor/{nome}")
-    public ResponseEntity<List<InstrutorDetalhadoDTO>> buscarInstrutorPorNome(String nome){
+    public ResponseEntity<List<InstrutorDetalhadoDTO>> buscarInstrutorPorNome(@PathVariable String nome){
 
         List<InstrutorDetalhadoDTO> result = instrutorUC.buscarInstrutorPorNome(nome);
-        return new ResponseEntity<>(result,HttpStatus.FOUND);
+        return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/deletarInstrutor/{id}")
-    public void  deletarInstrutorPorId(@PathVariable int id){
+    public ResponseEntity<Void> deletarInstrutorPorId(@PathVariable int id){
         instrutorUC.deletarInstrutorPorId(id);
+        return ResponseEntity.noContent().build();
     }
 }

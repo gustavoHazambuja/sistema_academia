@@ -59,7 +59,17 @@ public class AlunoRepository implements AlunoContract {
         return alunoJPARep.findByNomeContainingIgnoreCase(nome);
     }
 
+    @Override
     public Optional<Aluno> buscarAlunoPorId(int id){
         return alunoJPARep.findById(id);
+    }
+
+    @Override
+    public boolean atualizarAluno(Aluno aluno){
+        if(aluno == null){
+            return false;
+        }
+
+        return alunoJPARep.save(aluno) != null;
     }
 }

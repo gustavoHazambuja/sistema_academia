@@ -23,6 +23,10 @@ public class RematriculaService {
 
     public boolean fazerRematricula(Rematricula rematricula){
 
+        if(rematricula == null || rematricula.getAluno_id() == null){
+            return false;
+        }
+
         Optional<Aluno> aluno =  alunoService.buscarAlunoPorId(rematricula.getAluno_id());
 
         if(aluno.isEmpty()){
@@ -35,7 +39,11 @@ public class RematriculaService {
             return false;
         }
 
-        rematricula.setPlanoAcademia(rematricula.getPlanoAcademia());
+        // Atualizar o plano do aluno
+        Aluno alunoAtualizado = aluno.get();
+        alunoAtualizado.setPlanoAcademia(rematricula.getPlanoAcademia());
+        alunoService.atualizarAluno(alunoAtualizado);
+
         rematricula.setDataRematricula(LocalDate.now());
 
         return rematriculaContract.fazerRematricula(rematricula);

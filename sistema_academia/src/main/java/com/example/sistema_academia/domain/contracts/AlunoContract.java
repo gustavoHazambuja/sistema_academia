@@ -19,4 +19,5 @@ public interface AlunoContract {
     Optional<Aluno> buscarAlunoPorCpf(String cpf);
     Optional<Aluno> buscarAlunoPorId(int id);
     List<Aluno> buscarAlunoPorNome(String nome);
+    boolean atualizarAluno(Aluno aluno);
 }
