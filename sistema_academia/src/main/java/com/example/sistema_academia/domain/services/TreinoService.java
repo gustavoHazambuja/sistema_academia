@@ -11,7 +11,10 @@ import com.example.sistema_academia.domain.entities.Aluno;
 import com.example.sistema_academia.domain.entities.Instrutor;
 import com.example.sistema_academia.domain.entities.Treino;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class TreinoService {
     
     @Autowired
