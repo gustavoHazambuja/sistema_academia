@@ -39,6 +39,11 @@ public class TreinoService {
         boolean cpfJaExiste = alunoService.validarCPFAluno(treino.getCpfAluno());
 
         if(!cpfJaExiste){
+            return false;   
+        }
+
+        // Verificar se o CPF corresponde ao ID do aluno
+        if(!alunos.get().getCpf().equals(treino.getCpfAluno())){
             return false;
         }
 
