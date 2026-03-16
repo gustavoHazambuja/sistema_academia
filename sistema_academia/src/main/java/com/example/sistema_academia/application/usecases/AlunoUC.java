@@ -11,6 +11,7 @@ import com.example.sistema_academia.application.dtos.AlunoDTO;
 import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
 import com.example.sistema_academia.domain.entities.Aluno;
+import com.example.sistema_academia.domain.enums.EnumPlano;
 import com.example.sistema_academia.domain.services.AlunoService;
 
 @Component
@@ -59,6 +60,14 @@ public class AlunoUC {
     public AlunoDetalhadoDTO buscarAlunoPorId(int id){
         Aluno aluno = alunoService.buscarAlunoPorId(id).get();
         return AlunoDetalhadoDTO.fromModel(aluno);
+    }
+
+    public List<AlunoResumoDTO> buscarAlunoPorPlano(EnumPlano planoAcademia){
+        List<Aluno> aluno = alunoService.buscarAlunoPorPlano(planoAcademia);
+
+        return aluno.stream()
+            .map(AlunoResumoDTO::fromModel)
+            .toList();
     }
 
     

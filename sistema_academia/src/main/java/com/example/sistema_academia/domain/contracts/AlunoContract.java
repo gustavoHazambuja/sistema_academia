@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.example.sistema_academia.domain.entities.Aluno;
+import com.example.sistema_academia.domain.enums.EnumPlano;
 
 
 public interface AlunoContract {
@@ -20,4 +21,5 @@ public interface AlunoContract {
     Optional<Aluno> buscarAlunoPorId(int id);
     List<Aluno> buscarAlunoPorNome(String nome);
     boolean atualizarAluno(Aluno aluno);
+    List<Aluno> buscarAlunoPorPlano(EnumPlano planoAcademia);
 }

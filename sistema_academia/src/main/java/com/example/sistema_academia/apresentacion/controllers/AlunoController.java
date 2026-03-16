@@ -20,6 +20,7 @@ import com.example.sistema_academia.application.dtos.AlunoDTO;
 import com.example.sistema_academia.application.dtos.AlunoDetalhadoDTO;
 import com.example.sistema_academia.application.dtos.AlunoResumoDTO;
 import com.example.sistema_academia.application.usecases.AlunoUC;
+import com.example.sistema_academia.domain.enums.EnumPlano;
 
 import jakarta.validation.Valid;
 
@@ -80,6 +81,13 @@ public class AlunoController {
     public ResponseEntity<List<AlunoDetalhadoDTO>> buscarAlunoPorNome(@PathVariable String nome){
 
         List<AlunoDetalhadoDTO> result = alunoUC.buscarAlunoPorNome(nome);
+        return new ResponseEntity<>(result,HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/buscarPorPlano/aluno/{planoAcademia}")
+    public ResponseEntity<List<AlunoResumoDTO>> buscarAlunoPorPlano(@PathVariable EnumPlano planoAcademia){
+
+        List<AlunoResumoDTO> result = alunoUC.buscarAlunoPorPlano(planoAcademia);
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 }

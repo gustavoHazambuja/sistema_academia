@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.sistema_academia.domain.contracts.AlunoContract;
 import com.example.sistema_academia.domain.entities.Aluno;
+import com.example.sistema_academia.domain.enums.EnumPlano;
 import com.example.sistema_academia.infrastructure.adapters.AlunoJPARep;
 
 @Repository
@@ -71,5 +72,10 @@ public class AlunoRepository implements AlunoContract {
         }
 
         return alunoJPARep.save(aluno) != null;
+    }
+
+    @Override
+    public List<Aluno> buscarAlunoPorPlano(EnumPlano planoAcademia){
+        return alunoJPARep.findByPlanoAcademia(planoAcademia);
     }
 }

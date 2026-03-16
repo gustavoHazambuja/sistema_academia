@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.sistema_academia.domain.entities.Aluno;
+import com.example.sistema_academia.domain.enums.EnumPlano;
 
 
 public interface AlunoJPARep extends JpaRepository<Aluno, Integer> {
@@ -14,4 +15,5 @@ public interface AlunoJPARep extends JpaRepository<Aluno, Integer> {
     boolean existsByCpf(String cpf);
     Optional<Aluno> findAlunoByCpf(String cpf);
     List<Aluno> findByNomeContainingIgnoreCase(String nome);
+    List<Aluno> findByPlanoAcademia(EnumPlano planoAcademia);
 }

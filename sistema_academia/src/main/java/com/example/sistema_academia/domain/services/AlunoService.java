@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sistema_academia.domain.contracts.AlunoContract;
 import com.example.sistema_academia.domain.entities.Aluno;
+import com.example.sistema_academia.domain.enums.EnumPlano;
 
 @Service
 @Transactional
@@ -66,5 +67,9 @@ public class AlunoService{
 
     public boolean atualizarAluno(Aluno aluno){
         return alunoContract.atualizarAluno(aluno);
+    }
+
+    public List<Aluno> buscarAlunoPorPlano(EnumPlano planoAcademia){
+        return alunoContract.buscarAlunoPorPlano(planoAcademia);
     }
 }
