@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.sistema_academia.domain.entities.Rematricula;
 
-public interface RematriculaJPARep extends JpaRepository<Rematricula, Integer> {
+public interface RematriculaJPARep extends JpaRepository<Rematricula, Long> {
     
     List<Rematricula> findByCpfAluno(String cpfAluno);
 }

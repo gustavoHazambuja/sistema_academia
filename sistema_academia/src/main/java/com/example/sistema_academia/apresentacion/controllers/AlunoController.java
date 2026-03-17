@@ -52,12 +52,12 @@ public class AlunoController {
     }
 
     @GetMapping(value = "/validarIdAluno/{id}")
-    public boolean validarIdAluno(@PathVariable int id){
+    public boolean validarIdAluno(@PathVariable Long id){
         return alunoUC.validarIdAluno(id);
     }
 
     @DeleteMapping(value = "/deletarAluno/{id}")
-    public ResponseEntity<Void> deletarALunoPorId(@PathVariable int id){
+    public ResponseEntity<Void> deletarALunoPorId(@PathVariable Long id){
          alunoUC.deletarAlunoPorId(id);
          return ResponseEntity.noContent().build();
     }

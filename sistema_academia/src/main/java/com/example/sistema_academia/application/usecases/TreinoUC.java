@@ -35,8 +35,7 @@ public class TreinoUC {
     private Treino toModel(TreinoDTO dto){
         return new Treino(
             dto.getCpfAluno(),
-            dto.getAluno_id(),
-            dto.getInstrutor_id(),
+            dto.getCpfInstrutor(),
             dto.getObjetivo(),
             dto.getDatacriacao()
         );

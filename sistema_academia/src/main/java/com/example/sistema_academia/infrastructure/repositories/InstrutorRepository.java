@@ -36,7 +36,7 @@ public class InstrutorRepository implements InstrutorContract{
     }
 
     @Override
-    public boolean validarIdInstrutor(int id){
+    public boolean validarIdInstrutor(Long id){
         return instrutorJPARep.existsById(id);
     }
 
@@ -61,11 +61,15 @@ public class InstrutorRepository implements InstrutorContract{
     }
 
     @Override
-    public void deletarInstrutorPorId(int id){
+    public void deletarInstrutorPorId(Long id){
         instrutorJPARep.deleteById(id);
     }
 
-    public Optional<Instrutor> buscarInstrutorPorId(int id){
+    public Optional<Instrutor> buscarInstrutorPorId(Long id){
         return instrutorJPARep.findById(id);
+    }
+
+    public Optional<Instrutor> buscarInstrutorPorCpf(String cpf){
+        return instrutorJPARep.findByCpf(cpf);
     }
 }

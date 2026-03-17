@@ -25,21 +25,16 @@ public class RematriculaService {
 
     public boolean fazerRematricula(Rematricula rematricula){
 
-        if(rematricula == null || rematricula.getAluno_id() == null){
+        if(rematricula == null){
             return false;
         }
 
-        Optional<Aluno> aluno =  alunoService.buscarAlunoPorId(rematricula.getAluno_id());
+        Optional<Aluno> aluno =  alunoService.buscarAlunoPorCpf(rematricula.getCpfAluno());
 
         if(aluno.isEmpty()){
             return false;
         }
 
-        boolean cpfJaExiste = alunoService.validarCPFAluno(rematricula.getCpfAluno());
-
-        if(!cpfJaExiste){
-            return false;
-        }
 
         rematricula.setDataRematricula(LocalDate.now());
 

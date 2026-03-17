@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RematriculaResumoDTO {
     
-    private Integer id;
+    private Long id;
     private EnumPlano planoAcademia;
     private LocalDate dataRematricula = LocalDate.now();
 

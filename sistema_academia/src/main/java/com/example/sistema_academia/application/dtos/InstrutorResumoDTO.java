@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class InstrutorResumoDTO {
     
-    private int id;
+    private Long id;
     private String nome;
     private String email;
     private String formacao;

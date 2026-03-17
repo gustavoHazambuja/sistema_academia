@@ -6,7 +6,7 @@ import com.example.sistema_academia.domain.entities.Aluno;
 import com.example.sistema_academia.domain.entities.Instrutor;
 import com.example.sistema_academia.domain.enums.EnumPlano;
 
-public record AlunoDetalhadoDTO(int id, String cpf, String nome, String email, 
+public record AlunoDetalhadoDTO(Long id, String cpf, String nome, String email, 
                                 String telefone, LocalDate dataNascimento, LocalDate dataMatricula, 
                                 EnumPlano planoAcademia, Instrutor instrutor) {
     

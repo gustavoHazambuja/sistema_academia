@@ -37,7 +37,7 @@ public class InstrutorController {
     }
 
     @GetMapping(value = "/validarId/{id}")
-    public boolean validarIdInstrutor(@PathVariable int id){
+    public boolean validarIdInstrutor(@PathVariable Long id){
         return instrutorUC.validarIdInstrutor(id);
     }
 
@@ -79,8 +79,14 @@ public class InstrutorController {
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
+    @GetMapping(value = "/buscarPorCpf/instrutor/{cpf}")
+    public ResponseEntity<InstrutorDetalhadoDTO> buscarInstrutorPorCpf(@PathVariable String cpf){
+        InstrutorDetalhadoDTO result = instrutorUC.buscarInstrutorPorCpf(cpf);
+        return new ResponseEntity<>(result,HttpStatus.OK);
+    }
+
     @DeleteMapping(value = "/deletarInstrutor/{id}")
-    public ResponseEntity<Void> deletarInstrutorPorId(@PathVariable int id){
+    public ResponseEntity<Void> deletarInstrutorPorId(@PathVariable Long id){
         instrutorUC.deletarInstrutorPorId(id);
         return ResponseEntity.noContent().build();
     }

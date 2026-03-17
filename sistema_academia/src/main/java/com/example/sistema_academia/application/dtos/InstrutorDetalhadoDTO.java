@@ -6,7 +6,7 @@ import java.util.List;
 import com.example.sistema_academia.domain.entities.Instrutor;
 import com.example.sistema_academia.domain.enums.EnumTurno;
 
-public record InstrutorDetalhadoDTO(int id, String cpf, String nome,
+public record InstrutorDetalhadoDTO(Long id, String cpf, String nome,
                                     String email, String telefone, LocalDate dataNascimento,
                                     String formacao, List<AlunoResumoDTO> alunos, EnumTurno turnoAula
 ) {

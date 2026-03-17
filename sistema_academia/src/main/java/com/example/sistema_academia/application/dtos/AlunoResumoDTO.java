@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AlunoResumoDTO {
     
-    private int id;
+    private Long id;
     private String nome;
     private String email;
     private LocalDate dataMatricula = LocalDate.now();

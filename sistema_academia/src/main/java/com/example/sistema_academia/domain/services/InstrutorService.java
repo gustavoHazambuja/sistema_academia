@@ -38,7 +38,7 @@ public class InstrutorService {
         return instrutorContract.cadastrarInstrutor(instrutor);
     }
 
-    public boolean validarIdInstrutor(int id){
+    public boolean validarIdInstrutor(Long id){
         return instrutorContract.validarIdInstrutor(id);
     }
 
@@ -58,12 +58,16 @@ public class InstrutorService {
         return instrutorContract.buscarInstrutorPorNome(nome);
     }
 
-    public void deletarInstrutorPorId(int id){
+    public void deletarInstrutorPorId(Long id){
          instrutorContract.deletarInstrutorPorId(id);
     }
 
-    public Optional<Instrutor> buscarInstrutorPorId(int id){
+    public Optional<Instrutor> buscarInstrutorPorId(Long id){
         return instrutorContract.buscarInstrutorPorId(id);
+    }
+
+    public Optional<Instrutor> buscarInstrutorPorCpf(String cpf){
+        return instrutorContract.buscarInstrutorPorCpf(cpf);
     }
 
    

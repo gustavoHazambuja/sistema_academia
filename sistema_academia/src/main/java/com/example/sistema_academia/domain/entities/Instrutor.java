@@ -42,7 +42,7 @@ public class Instrutor {
 
     
 
-    public Instrutor(Integer id, String nome, String email,String telefone, String formacao,EnumTurno turnoAula) {
+    public Instrutor(Long id, String nome, String email,String telefone, String formacao,EnumTurno turnoAula) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -56,7 +56,7 @@ public class Instrutor {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instrutor_seq")
     @SequenceGenerator(name = "instrutor_seq", sequenceName = "instrutor_id_seq", allocationSize = 1)
-    private Integer id;
+    private Long id;
 
     @Column(unique = true)
     private String cpf;

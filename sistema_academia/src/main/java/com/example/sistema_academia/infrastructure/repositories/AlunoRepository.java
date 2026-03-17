@@ -36,7 +36,7 @@ public class AlunoRepository implements AlunoContract {
     }
 
     @Override
-    public boolean validarIdAluno(int id){
+    public boolean validarIdAluno(Long id){
         return alunoJPARep.existsById(id);
     }
 
@@ -46,13 +46,13 @@ public class AlunoRepository implements AlunoContract {
     }
 
     @Override
-    public void deletarAlunoPorId(int id){
+    public void deletarAlunoPorId(Long id){
         alunoJPARep.deleteById(id);
     }
 
     @Override
     public Optional<Aluno> buscarAlunoPorCpf(String cpf){
-        return alunoJPARep.findAlunoByCpf(cpf);
+        return alunoJPARep.findByCpf(cpf);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class AlunoRepository implements AlunoContract {
     }
 
     @Override
-    public Optional<Aluno> buscarAlunoPorId(int id){
+    public Optional<Aluno> buscarAlunoPorId(Long id){
         return alunoJPARep.findById(id);
     }
 

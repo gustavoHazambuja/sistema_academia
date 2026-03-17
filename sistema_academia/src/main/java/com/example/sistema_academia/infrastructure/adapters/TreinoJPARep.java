@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.sistema_academia.domain.entities.Treino;
 
-public interface TreinoJPARep extends JpaRepository<Treino, Integer> {
+public interface TreinoJPARep extends JpaRepository<Treino, Long> {
     
     List<Treino> findByCpfAluno(String cpfAluno);
 }

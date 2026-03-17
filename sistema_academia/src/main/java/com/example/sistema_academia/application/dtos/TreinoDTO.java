@@ -16,15 +16,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreinoDTO {
-
-    @NotBlank(message = "O CPF é obrigatório") @Size(min = 11, max = 11, message = "O CPF precisa ter 11 caracteres.")
-    private String cpfAluno;
     
-    @NotNull(message = "O id do aluno é obrigatório")
-    private Integer aluno_id;
+    @NotNull (message = "O cpf é obrigatório") @Size(min = 11, max = 11, message = "o CPF deve ter 11 caracteres")
+    private String cpfAluno;
 
-    @NotNull(message = "O id do instrutor é obrigatório")
-    private Integer instrutor_id;
+    @NotNull (message = "O cpf é obrigatório") @Size(min = 11, max = 11, message = "o CPF deve ter 11 caracteres")
+    private String cpfInstrutor;
 
     @NotBlank(message = "O objetivo é obrigatório")
     private String objetivo;

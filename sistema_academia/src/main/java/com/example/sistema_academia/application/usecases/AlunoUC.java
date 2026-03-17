@@ -25,7 +25,7 @@ public class AlunoUC {
         return alunoService.validarCPFAluno(cpf);
     }
 
-    public boolean validarIdAluno(int id){
+    public boolean validarIdAluno(Long id){
         return alunoService.validarIdAluno(id);
     }
 
@@ -35,7 +35,7 @@ public class AlunoUC {
 
     }
 
-    public void deletarAlunoPorId(int id){
+    public void deletarAlunoPorId(Long id){
         alunoService.deletarAlunoPorId(id);
     }
 
@@ -57,7 +57,7 @@ public class AlunoUC {
                 .toList();
     }
 
-    public AlunoDetalhadoDTO buscarAlunoPorId(int id){
+    public AlunoDetalhadoDTO buscarAlunoPorId(Long id){
         Aluno aluno = alunoService.buscarAlunoPorId(id).get();
         return AlunoDetalhadoDTO.fromModel(aluno);
     }

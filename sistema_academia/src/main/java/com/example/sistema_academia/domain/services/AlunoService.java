@@ -40,7 +40,7 @@ public class AlunoService{
         return alunoContract.cadastrarAluno(aluno);
     }
 
-    public boolean validarIdAluno(int id){
+    public boolean validarIdAluno(Long id){
         return alunoContract.validarIdAluno(id);
     }
 
@@ -48,7 +48,7 @@ public class AlunoService{
        return alunoContract.listarAlunos(pageable);
     }
 
-    public void deletarAlunoPorId(int id){
+    public void deletarAlunoPorId(Long id){
 
         alunoContract.deletarAlunoPorId(id);
     }
@@ -61,7 +61,7 @@ public class AlunoService{
         return alunoContract.buscarAlunoPorNome(nome);
     }
 
-    public Optional<Aluno> buscarAlunoPorId(int id){
+    public Optional<Aluno> buscarAlunoPorId(Long id){
         return alunoContract.buscarAlunoPorId(id);
     }
 

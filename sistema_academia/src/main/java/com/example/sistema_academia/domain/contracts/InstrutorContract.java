@@ -12,11 +12,12 @@ public interface InstrutorContract {
     
         boolean cadastrarInstrutor(Instrutor instrutor);
         boolean validarCPFInstrutor(String cpf);
-        boolean validarIdInstrutor(int id);
-        void deletarInstrutorPorId(int id);
+        boolean validarIdInstrutor(Long id);
+        void deletarInstrutorPorId(Long id);
         Page<Instrutor> listarInstrutores(Pageable pageable);
         boolean validarNomeAluno(String nomeAluno);
         boolean validarNomeInstrutor(String nomeinstrutor);
         List<Instrutor> buscarInstrutorPorNome(String nome);
-        Optional<Instrutor> buscarInstrutorPorId(int id);
+        Optional<Instrutor> buscarInstrutorPorId(Long id);
+        Optional<Instrutor> buscarInstrutorPorCpf(String cpf);
 }

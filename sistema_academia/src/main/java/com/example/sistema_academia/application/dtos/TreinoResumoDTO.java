@@ -16,9 +16,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TreinoResumoDTO {
     
-    private Integer id;
-    private Integer aluno_id;
-    private Integer instrutor_id;
+    private Long id;
+    private String cpfALuno;
+    private String cpfInstrutor;
     private String objetivo;
     private LocalDate dataCriacao = LocalDate.now();
 
@@ -27,8 +27,8 @@ public class TreinoResumoDTO {
     public static TreinoResumoDTO fromModel(Treino treino){
         return new TreinoResumoDTO(
             treino.getId(),
-            treino.getAluno_id(),
-            treino.getInstrutor_id(),
+            treino.getCpfAluno(),
+            treino.getCpfInstrutor(),
             treino.getObjetivo(),
             treino.getDataCriacao()
         );

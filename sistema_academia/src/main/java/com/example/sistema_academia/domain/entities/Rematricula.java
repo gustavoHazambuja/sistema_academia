@@ -25,9 +25,8 @@ public class Rematricula {
 
     
 
-    public Rematricula(String cpfAluno, Integer aluno_id,EnumPlano planoAcademia,LocalDate dataRematricula) {
+    public Rematricula(String cpfAluno,EnumPlano planoAcademia,LocalDate dataRematricula) {
         this.cpfAluno = cpfAluno;
-        this.aluno_id = aluno_id;
         this.planoAcademia = planoAcademia;
         this.dataRematricula = LocalDate.now();
     }
@@ -40,10 +39,9 @@ public class Rematricula {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rematricula_seq")
     @SequenceGenerator(name = "rematricula_seq", sequenceName = "rematricula_id_seq", allocationSize = 1)
-    private Integer id;
+    private Long id;
 
     private String cpfAluno;
-    private Integer aluno_id;
 
     private EnumPlano planoAcademia;
 

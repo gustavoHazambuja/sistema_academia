@@ -29,21 +29,10 @@ public class TreinoService {
 
     public boolean criarTreino(Treino treino){
         
-        Optional<Instrutor> instrutores = instrutorService.buscarInstrutorPorId(treino.getInstrutor_id());
-        Optional<Aluno> alunos = alunoService.buscarAlunoPorId(treino.getAluno_id());
+        Optional<Instrutor> instrutores = instrutorService.buscarInstrutorPorCpf(treino.getCpfInstrutor());
+        Optional<Aluno> alunos = alunoService.buscarAlunoPorCpf(treino.getCpfAluno());
 
         if(alunos.isEmpty() || instrutores.isEmpty()){
-            return false;
-        }
-
-        boolean cpfJaExiste = alunoService.validarCPFAluno(treino.getCpfAluno());
-
-        if(!cpfJaExiste){
-            return false;   
-        }
-
-        // Verificar se o CPF corresponde ao ID do aluno
-        if(!alunos.get().getCpf().equals(treino.getCpfAluno())){
             return false;
         }
 

@@ -40,7 +40,7 @@ public class Aluno {
 
     
 
-    public Aluno(Integer id, String nome, String email,LocalDate dataMatricula,EnumPlano planoAcademia) {
+    public Aluno(Long id, String nome, String email,LocalDate dataMatricula,EnumPlano planoAcademia) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -53,7 +53,7 @@ public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "aluno_seq")
     @SequenceGenerator(name = "aluno_seq", sequenceName = "aluno_id_seq", allocationSize = 1)
-    private Integer id;
+    private Long id;
     
     @Column(unique = true)
     private String cpf;

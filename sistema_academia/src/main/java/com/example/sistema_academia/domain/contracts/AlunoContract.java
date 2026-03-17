@@ -14,11 +14,11 @@ public interface AlunoContract {
     
     boolean cadastrarAluno(Aluno aluno);
     boolean validarCPFAluno(String cpf);
-    boolean validarIdAluno(int id);
+    boolean validarIdAluno(Long id);
     Page<Aluno> listarAlunos(Pageable pageable);
-    void deletarAlunoPorId(int id);
+    void deletarAlunoPorId(Long id);
     Optional<Aluno> buscarAlunoPorCpf(String cpf);
-    Optional<Aluno> buscarAlunoPorId(int id);
+    Optional<Aluno> buscarAlunoPorId(Long id);
     List<Aluno> buscarAlunoPorNome(String nome);
     boolean atualizarAluno(Aluno aluno);
     List<Aluno> buscarAlunoPorPlano(EnumPlano planoAcademia);

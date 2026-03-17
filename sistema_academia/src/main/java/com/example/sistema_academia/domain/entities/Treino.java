@@ -24,10 +24,9 @@ public class Treino {
 
     
     
-    public Treino(String cpfAluno, Integer aluno_id,Integer instrutor_id,String objetivo, LocalDate dataCriacao) {
+    public Treino(String cpfAluno,String cpfInstrutor,String objetivo, LocalDate dataCriacao) {
         this.cpfAluno = cpfAluno;
-        this.aluno_id = aluno_id;
-        this.instrutor_id = instrutor_id;
+        this.cpfInstrutor = cpfInstrutor;
         this.objetivo = objetivo;
         this.dataCriacao = LocalDate.now();
     }
@@ -36,11 +35,10 @@ public class Treino {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "treino_seq")
     @SequenceGenerator(name = "treino_seq", sequenceName = "treino_id_seq", allocationSize = 1)
-    private Integer id;
+    private Long id;
 
     private String cpfAluno;
-    private Integer aluno_id;
-    private Integer instrutor_id;
+    private String cpfInstrutor;
     private String objetivo;
     private LocalDate dataCriacao = LocalDate.now();
 }
