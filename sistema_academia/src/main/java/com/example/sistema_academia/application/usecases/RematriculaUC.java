@@ -23,8 +23,8 @@ public class RematriculaUC {
         return rematriculaService.fazerRematricula(rematricula);
     }
 
-    public List<RematriculaResumoDTO> buscarHistorico(String cpfAluno){
-        List<Rematricula> rematriculas = rematriculaService.buscarHistorico(cpfAluno);
+    public List<RematriculaResumoDTO> buscarHistoricoRematriculas(String cpfAluno){
+        List<Rematricula> rematriculas = rematriculaService.buscarHistoricoRematriculas(cpfAluno);
 
             return rematriculas.stream()
                 .map(RematriculaResumoDTO::fromModel)

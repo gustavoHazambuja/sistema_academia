@@ -52,7 +52,7 @@ public class RematriculaService {
         return alunoService.atualizarAluno(alunoAtualizado);
     }
 
-    public List<Rematricula> buscarHistorico(String cpfAluno){
-        return rematriculaContract.buscarHistorico(cpfAluno);
+    public List<Rematricula> buscarHistoricoRematriculas(String cpfAluno){
+        return rematriculaContract.buscarHistoricoRematriculas(cpfAluno);
     }
 }

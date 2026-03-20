@@ -23,9 +23,9 @@ public class TreinoUC {
         return treinoService.criarTreino(treino);
     }
 
-    public List<TreinoResumoDTO> listarTreinos(String cpfAluno){
+    public List<TreinoResumoDTO> buscarHistoricoTreinos(String cpfAluno){
 
-        List<Treino> treinos = treinoService.listarTreinos(cpfAluno);
+        List<Treino> treinos = treinoService.buscarHistoricoTreinos(cpfAluno);
         
             return treinos.stream()
                 .map(TreinoResumoDTO::fromModel)

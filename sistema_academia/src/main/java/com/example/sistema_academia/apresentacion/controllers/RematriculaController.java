@@ -43,9 +43,9 @@ public class RematriculaController{
     }
 
     @GetMapping(value = "/buscarHistorico/{cpfAluno}")
-    public ResponseEntity<List<RematriculaResumoDTO>> buscarHistorico(@PathVariable String cpfAluno){
+    public ResponseEntity<List<RematriculaResumoDTO>> buscarHistoricoRematriculas(@PathVariable String cpfAluno){
 
-        List<RematriculaResumoDTO> result = rematriculaUC.buscarHistorico(cpfAluno);
+        List<RematriculaResumoDTO> result = rematriculaUC.buscarHistoricoRematriculas(cpfAluno);
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 

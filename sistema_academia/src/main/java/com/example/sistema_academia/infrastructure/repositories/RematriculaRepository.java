@@ -28,7 +28,7 @@ public class RematriculaRepository implements RematriculaContract {
     }
 
     @Override
-    public List<Rematricula> buscarHistorico(String cpfAluno){
+    public List<Rematricula> buscarHistoricoRematriculas(String cpfAluno){
         return jpaRep.findByCpfAluno(cpfAluno);
     }
 

@@ -39,8 +39,8 @@ public class TreinoService {
         return treinoContract.criarTreino(treino);
     }
 
-    public List<Treino> listarTreinos(String cpfAluno){
-        return treinoContract.listarTreinos(cpfAluno);
+    public List<Treino> buscarHistoricoTreinos(String cpfAluno){
+        return treinoContract.buscarHistoricoTreinos(cpfAluno);
     }
 
 }

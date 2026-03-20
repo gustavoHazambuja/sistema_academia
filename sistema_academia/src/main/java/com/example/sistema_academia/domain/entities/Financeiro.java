@@ -1,7 +1,7 @@
 package com.example.sistema_academia.domain.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +22,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Financeiro {
+
+    public Financeiro(Long id, BigDecimal valor, LocalDateTime dataPagamento){
+        this.id = id;
+        this.valor = valor;
+        this.dataPagamento = LocalDateTime.now();
+    }
+
+    public Financeiro(BigDecimal valor, String cpfAluno){
+        this.valor = valor;
+        this.cpfAluno = cpfAluno;
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "financeiro_seq")
@@ -30,5 +41,5 @@ public class Financeiro {
 
     private BigDecimal valor;
     private String cpfAluno;
-    private LocalDate dataPagamento = LocalDate.now();
+    private LocalDateTime dataPagamento = LocalDateTime.now();
 }

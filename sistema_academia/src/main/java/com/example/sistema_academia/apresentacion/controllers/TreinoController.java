@@ -42,9 +42,9 @@ public class TreinoController {
     }
 
     @GetMapping("/listarTreinos/{cpfAluno}")
-    public ResponseEntity<List<TreinoResumoDTO>> listarTreinos(@PathVariable String cpfAluno){
+    public ResponseEntity<List<TreinoResumoDTO>> buscarHistoricoTreinos(@PathVariable String cpfAluno){
         
-        List<TreinoResumoDTO> respost = treinoUC.listarTreinos(cpfAluno);
+        List<TreinoResumoDTO> respost = treinoUC.buscarHistoricoTreinos(cpfAluno);
         return new ResponseEntity<>(respost,HttpStatus.OK);
     }
 }
