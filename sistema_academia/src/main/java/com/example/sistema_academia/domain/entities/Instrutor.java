@@ -8,6 +8,7 @@ import com.example.sistema_academia.domain.enums.EnumTurno;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -73,8 +74,8 @@ public class Instrutor {
 
     private String formacao;
 
-    @OneToMany(mappedBy = "instrutor")
-    private List<Aluno> alunos = new ArrayList<>();
+    @OneToMany(mappedBy = "instrutor", fetch = FetchType.LAZY)
+    private List<Treino> treinos = new ArrayList<>();
 
     private EnumTurno turnoAula;
 }

@@ -41,7 +41,7 @@ public class TreinoController {
         }
     }
 
-    @GetMapping("/listarTreinos/{cpfAluno}")
+    @GetMapping("/buscarHistorico/{cpfAluno}")
     public ResponseEntity<List<TreinoResumoDTO>> buscarHistoricoTreinos(@PathVariable String cpfAluno){
         
         List<TreinoResumoDTO> respost = treinoUC.buscarHistoricoTreinos(cpfAluno);

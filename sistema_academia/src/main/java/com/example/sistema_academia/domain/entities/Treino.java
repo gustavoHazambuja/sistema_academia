@@ -6,8 +6,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,10 +27,10 @@ public class Treino {
 
     
     
-    public Treino(String cpfAluno,String cpfInstrutor,String objetivo, LocalDate dataCriacao) {
+    public Treino(String cpfAluno,String cpfInstrutor,String objetivoAluno, LocalDate dataCriacao) {
         this.cpfAluno = cpfAluno;
         this.cpfInstrutor = cpfInstrutor;
-        this.objetivo = objetivo;
+        this.objetivoAluno = objetivoAluno;
         this.dataCriacao = LocalDate.now();
     }
 
@@ -37,8 +40,20 @@ public class Treino {
     @SequenceGenerator(name = "treino_seq", sequenceName = "treino_id_seq", allocationSize = 1)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
+
+    @ManyToOne
+    @JoinColumn(name = "instrutor_id")
+    private Instrutor instrutor;
+
+    @Transient
     private String cpfAluno;
+
+    @Transient
     private String cpfInstrutor;
-    private String objetivo;
+
+    private String objetivoAluno;
     private LocalDate dataCriacao = LocalDate.now();
 }

@@ -8,16 +8,16 @@ import com.example.sistema_academia.domain.enums.EnumTurno;
 
 public record InstrutorDetalhadoDTO(Long id, String cpf, String nome,
                                     String email, String telefone, LocalDate dataNascimento,
-                                    String formacao, List<AlunoResumoDTO> alunos, EnumTurno turnoAula
+                                    String formacao, List<TreinoResumoDTO> treinos, EnumTurno turnoAula
 ) {
 
 
 
     public static InstrutorDetalhadoDTO fromModel(Instrutor instrutor){
 
-        List<AlunoResumoDTO> alunosDTO = instrutor.getAlunos()
+        List<TreinoResumoDTO> treinosDTO = instrutor.getTreinos()
             .stream()
-            .map(AlunoResumoDTO::fromModel)
+            .map(TreinoResumoDTO::fromModel)
             .toList();
 
 
@@ -29,7 +29,7 @@ public record InstrutorDetalhadoDTO(Long id, String cpf, String nome,
             instrutor.getTelefone(),
             instrutor.getDataNascimento(),
             instrutor.getFormacao(),
-            alunosDTO,
+            treinosDTO,
             instrutor.getTurnoAula());
     }
     

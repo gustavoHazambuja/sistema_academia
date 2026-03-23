@@ -24,7 +24,7 @@ public class TreinoDTO {
     private String cpfInstrutor;
 
     @NotBlank(message = "O objetivo é obrigatório")
-    private String objetivo;
+    private String objetivoAluno;
     
     private LocalDate datacriacao = LocalDate.now();
 

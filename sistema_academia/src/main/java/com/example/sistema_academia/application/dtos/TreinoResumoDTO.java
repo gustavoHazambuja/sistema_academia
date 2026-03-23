@@ -27,13 +27,10 @@ public class TreinoResumoDTO {
     public static TreinoResumoDTO fromModel(Treino treino){
         return new TreinoResumoDTO(
             treino.getId(),
-            treino.getCpfAluno(),
-            treino.getCpfInstrutor(),
-            treino.getObjetivo(),
+            treino.getAluno() != null ? treino.getAluno().getCpf() : treino.getCpfAluno(),
+            treino.getInstrutor() != null ? treino.getInstrutor().getCpf() : treino.getCpfInstrutor(),
+            treino.getObjetivoAluno(),
             treino.getDataCriacao()
         );
     }
 }
-
-
-

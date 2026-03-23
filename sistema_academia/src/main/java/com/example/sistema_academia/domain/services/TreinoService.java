@@ -36,6 +36,9 @@ public class TreinoService {
             return false;
         }
 
+        treino.setAluno(alunos.get());
+        treino.setInstrutor(instrutores.get());
+
         return treinoContract.criarTreino(treino);
     }
 

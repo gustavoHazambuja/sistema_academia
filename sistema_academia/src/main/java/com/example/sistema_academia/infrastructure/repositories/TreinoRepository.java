@@ -29,6 +29,6 @@ public class TreinoRepository implements TreinoContract{
 
     @Override
     public List<Treino> buscarHistoricoTreinos(String cpfAluno){
-        return jpaRep.findByCpfAluno(cpfAluno);
+        return jpaRep.findByAlunoCpf(cpfAluno);
     }
 }

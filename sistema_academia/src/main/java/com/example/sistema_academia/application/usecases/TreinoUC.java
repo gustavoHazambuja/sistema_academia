@@ -36,7 +36,7 @@ public class TreinoUC {
         return new Treino(
             dto.getCpfAluno(),
             dto.getCpfInstrutor(),
-            dto.getObjetivo(),
+            dto.getObjetivoAluno(),
             dto.getDatacriacao()
         );
     }
