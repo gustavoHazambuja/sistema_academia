@@ -3,11 +3,11 @@
 
 # Sobre o projeto
 
-Sistema Academia é uma aplicação backend desenvolvida para gerenciar as operações fundamentais de uma academia. O sistema centraliza o cadastro de alunos e instrutores, permitindo o controle de treinos e planos.
+Sistema Academia é uma aplicação backend que consiste em um sistema de gerenciamento para academias, controlando o fluxo de alunos, instrutores e a prescrição de exercícios.
 
-Nela podemos cadastrar instrutores e alunos com validação automática de CPF, listar usuários por filtros específicos (como plano para alunos) e gerenciar rematrículas e  exclusão de registros. 
+Nela podemos cadastrar e gerenciar alunos e instrutores com validações automáticas de dados (como CPF), além de criar treinos personalizados vinculando um aluno a um instrutor. O sistema também permite consultar o histórico completo de treinos de um aluno específico.
 
-Além disso, a aplicação possui um módulo de criação de treinos, onde é possível vincular um aluno a um instrutor, definir objetivos e consultar o histórico completo de treinos de um aluno específico. O sistema também prepara a estrutura para resumos financeiros.
+Podemos também realizar buscas filtradas, como encontrar alunos por plano ou por nome, listar instrutores de forma paginada e todo o ambiente de banco de dados e aplicação foi configurado para rodar em containers.
 
 # Tecnologias utilizadas
 ## Back end
